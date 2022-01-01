@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Number of islands - Learn Python</title>
+  <title>Two sum - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Number of islands";
-    var mkdocs_page_input_path = "leetcode/graph/number-of-islands.md";
+    var mkdocs_page_name = "Two sum";
+    var mkdocs_page_input_path = "leetcode/list-map/two-sum.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -57,17 +57,17 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../python-keywrods/">Python keywrods</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Graph</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-level-order-traversal/">Binary tree level order traversal</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Graph</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../graph/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Number of islands</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../graph/number-of-islands/">Number of islands</a>
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Two sum</a>
                 </li>
     </ul>
                     </li>
@@ -104,11 +104,11 @@
         
       
         
-          <li>Graph &raquo;</li>
+          <li>List map &raquo;</li>
         
       
     
-    <li>Number of islands</li>
+    <li>Two sum</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -120,44 +120,38 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/number-of-islands/
+                <pre><code class="language-python"># https://leetcode-cn.com/problems/two-sum/
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -&gt; int:
-        dirs = [[0,1],[1,0],[0,-1],[-1,0]]
-        ROW = len(grid)
-        COL = len(grid[0])
-        count = 0
+    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
+        # eg
+        # nums = [2,7,11,15], target = 9
+        # 2 -&gt; [7,11,15]
+        # 7 -&gt; [11,15]
+        # ...
 
-        def isValidPosition(x, y):
-            return x &gt;= 0 and y &gt;= 0 and x &lt; ROW and y &lt; COL and grid[x][y] == '1'
+        ## sol1:
+        # for i, n in enumerate(nums):
+        #     for j, m in enumerate(nums):
+        #         if j &gt; i:
+        #             if n + m == target:
+        #                 return [i, j]
+        # return [-1, -1]
 
-        def dfs(x, y):
-            grid[x][y] = '-1'
-            for dx, dy in dirs:
-                nx, ny = x+dx, y+dy
-                if isValidPosition(nx, ny):
-                    dfs(nx, ny)
+        ## sol2:
+        needed = {}
+        for i, n in enumerate(nums):
+            if n in needed:
+                return [needed[n], i]
 
-        def bfs(x, y):
-            queue = [[x, y]]
-            while queue:
-                new_queue = []
-                for cx, cy in queue:
-                    grid[cx][cy] = '-1'
-                    for dx, dy in dirs:
-                        nx, ny = cx+dx, cy+dy
-                        if isValidPosition(nx, ny):
-                            new_queue.append([nx, ny])
-                            grid[nx][ny] = '-1'
-                queue = new_queue
+            reminder = target - n
+            needed[reminder] = i
+        return [-1, -1]
 
-        for r in range(ROW):
-            for c in range(COL):
-                if grid[r][c] == '1':
-                    count += 1
-                    bfs(r, c)
-
-        return count
+        ## demo
+        # i: 1
+        # n: 7
+        # needed: {7: 0}
+        # reminder: 7
 </code></pre>
               
             </div>
@@ -166,10 +160,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../list-map/two-sum/" class="btn btn-neutral float-right" title="Two sum">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../../mkdocs/config/" class="btn btn-neutral float-right" title="Config">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../binary-tree-level-order-traversal/" class="btn btn-neutral" title="Binary tree level order traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../graph/number-of-islands/" class="btn btn-neutral" title="Number of islands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -195,10 +189,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../binary-tree-level-order-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../graph/number-of-islands/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../list-map/two-sum/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../../mkdocs/config/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
