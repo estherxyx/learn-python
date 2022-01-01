@@ -1,3 +1,12 @@
 footer {
-    display: none
+    display: none;
+}
+
+.wy-nav-content {
+    max-width: none;
+    min-height: 100vh;
+}
+
+body {
+    font-family: monospace
 }
