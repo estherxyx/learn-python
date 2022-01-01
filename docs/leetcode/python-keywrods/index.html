@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Problems - Learn Python</title>
+  <title>Python keywrods - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Problems";
-    var mkdocs_page_input_path = "leetcode/problems.md";
+    var mkdocs_page_name = "Python keywrods";
+    var mkdocs_page_input_path = "leetcode/python-keywrods.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -51,26 +51,30 @@
                     <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">Mkdocs</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/usage/">Usage</a>
-                    </li>
-                </ul>
                 <p class="caption"><span class="caption-text">Leetcode</span></p>
                 <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../data-structure/">Data Structure</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../data-structure/">Data structure</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Problems</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#list">List</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bfs">BFS</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dfs">DFS</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bst">BST</a>
-    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Python keywrods</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Graph</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../graph/number-of-islands/">Number of islands</a>
+                </li>
     </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">List</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../list/two-sum/">Two sum</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Mkdocs</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/config/">Config</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../mkdocs/usage/">Usage</a>
                     </li>
                 </ul>
       </div>
@@ -98,7 +102,7 @@
         
       
     
-    <li>Problems</li>
+    <li>Python keywrods</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -110,84 +114,27 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="problems">Problems</h1>
-<p><a href="https://leetcode-cn.com/problemset/algorithms/">https://leetcode-cn.com/problemset/algorithms/</a></p>
-<h2 id="list">List</h2>
-<pre><code class="language-python"># https://leetcode-cn.com/problems/two-sum/
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
-        # eg
-        # nums = [2,7,11,15], target = 9
-        # 2 -&gt; [7,11,15]
-        # 7 -&gt; [11,15]
-        # ...
+                <pre><code class="language-python"># enumerate
+for i, n in enumerate([10,20,30]): 
+    print(i, n)
 
-        ## sol1:
-        # for i, n in enumerate(nums):
-        #     for j, m in enumerate(nums):
-        #         if j &gt; i:
-        #             if n + m == target:
-        #                 return [i, j]
-        # return [-1, -1]
-
-        ## sol2:
-        needed = {}
-        for i, n in enumerate(nums):
-            if n in needed:
-                return [needed[n], i]
-
-            reminder = target - n
-            needed[reminder] = i
-        return [-1, -1]
-
-        ## demo
-        # i: 1
-        # n: 7
-        # needed: {7: 0}
-        # reminder: 7
+# &gt;&gt;&gt; 0, 10
+# &gt;&gt;&gt; 1, 20
+# &gt;&gt;&gt; 2, 30
 </code></pre>
-<h2 id="bfs">BFS</h2>
-<pre><code class="language-python"># https://leetcode-cn.com/problems/number-of-islands/
-class Solution:
-    def numIslands(self, grid: List[List[str]]) -&gt; int:
-        dirs = [[0,1],[1,0],[0,-1],[-1,0]]
-        ROW = len(grid)
-        COL = len(grid[0])
-        count = 0
-
-        def isValidPosition(x, y):
-            return x &gt;= 0 and y &gt;= 0 and x &lt; ROW and y &lt; COL and grid[x][y] == '1'
-
-        def dfs(x, y):
-            grid[x][y] = '-1'
-            for dx, dy in dirs:
-                nx, ny = x+dx, y+dy
-                if isValidPosition(nx, ny):
-                    dfs(nx, ny)
-
-        def bfs(x, y):
-            queue = [[x, y]]
-            while queue:
-                new_queue = []
-                for cx, cy in queue:
-                    grid[cx][cy] = '-1'
-                    for dx, dy in dirs:
-                        nx, ny = cx+dx, cy+dy
-                        if isValidPosition(nx, ny):
-                            new_queue.append([nx, ny])
-                            grid[nx][ny] = '-1'
-                queue = new_queue
-
-        for r in range(ROW):
-            for c in range(COL):
-                if grid[r][c] == '1':
-                    count += 1
-                    bfs(r, c)
-
-        return count
+<pre><code class="language-python"># slice
+[1,2,3][1:] # [2,3]
 </code></pre>
-<h2 id="dfs">DFS</h2>
-<h2 id="bst">BST</h2>
+<pre><code class="language-python"># map
+m = {}
+m1 = { 1 : 'Yi'}
+m[1] = 'one'
+
+if lang == 'english':
+    print(m[1])
+else:
+    print(m1[1])
+</code></pre>
               
             </div>
           </div>
@@ -195,8 +142,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../graph/number-of-islands/" class="btn btn-neutral float-right" title="Number of islands">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../data-structure/" class="btn btn-neutral" title="Data Structure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../data-structure/" class="btn btn-neutral" title="Data structure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -224,6 +173,8 @@ class Solution:
     
       <span><a href="../data-structure/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../graph/number-of-islands/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
