@@ -1,4 +1,3 @@
-# structure
 ## Big-O
 - `O(1)`
 - `O(n)`: number of elements -> n

@@ -5,11 +5,9 @@ site_dir: generated
 
 extra_css:
     - css/extra.css
-
+plugins:
+    - search
+    - awesome-pages
 nav:
     - Home: index.md
-    - Mkdocs:
-        - Usage: ./mkdocs/usage.md
-    - Leetcode:
-        - Data Structure: ./leetcode/data-structure.md
-        - Problems: ./leetcode/problems.md
+    - ...

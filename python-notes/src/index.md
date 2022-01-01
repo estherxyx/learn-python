@@ -1,6 +1,10 @@
-# Welcome to MkDocs
+# estherxyx.github.io/learn-python
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Intro
+- This is blog about my python study footprint
 
-Hello From 
-![](https://estherxyx.github.io/head-cat.png)
+
+---
+Hello World from `estherxyx`:
+
+<img src="https://estherxyx.github.io/head-cat.png" style="width:200px">
