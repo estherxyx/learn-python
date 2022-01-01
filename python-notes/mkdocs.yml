@@ -1,5 +1,14 @@
-site_name: MkLorum
-site_url: https://example.com/
+site_name: Learn Python
+theme: c
+docs_dir: src
+site_dir: generated
+
+extra_css:
+    - css/extra.css
+
 nav:
     - Home: index.md
-theme: readthedocs
+    - Mkdocs:
+        - Usage: ./mkdocs/usage.md
+    - Leetcode:
+        - Data Structure: ./leetcode/data-structure.md
