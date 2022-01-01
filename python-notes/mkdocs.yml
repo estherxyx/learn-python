@@ -12,3 +12,4 @@ nav:
         - Usage: ./mkdocs/usage.md
     - Leetcode:
         - Data Structure: ./leetcode/data-structure.md
+        - Problems: ./leetcode/problems.md

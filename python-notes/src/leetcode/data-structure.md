@@ -1,8 +1,7 @@
 # structure
-```python
-class Solution():
-    def function1():
-        # list
-        list = [1,2,3]
+## Big-O
+- `O(1)`
+- `O(n)`: number of elements -> n
+- `O(n^2)`
 
-```
+![](https://cdn-media-1.freecodecamp.org/images/1*KfZYFUT2OKfjekJlCeYvuQ.jpeg)
