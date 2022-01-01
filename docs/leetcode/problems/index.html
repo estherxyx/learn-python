@@ -111,6 +111,7 @@
             <div class="section">
               
                 <h1 id="problems">Problems</h1>
+<p><a href="https://leetcode-cn.com/problemset/algorithms/">https://leetcode-cn.com/problemset/algorithms/</a></p>
 <h2 id="list">List</h2>
 <pre><code class="language-python"># https://leetcode-cn.com/problems/two-sum/
 class Solution:
@@ -146,6 +147,45 @@ class Solution:
         # reminder: 7
 </code></pre>
 <h2 id="bfs">BFS</h2>
+<pre><code class="language-python"># https://leetcode-cn.com/problems/number-of-islands/
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -&gt; int:
+        dirs = [[0,1],[1,0],[0,-1],[-1,0]]
+        ROW = len(grid)
+        COL = len(grid[0])
+        count = 0
+
+        def isValidPosition(x, y):
+            return x &gt;= 0 and y &gt;= 0 and x &lt; ROW and y &lt; COL and grid[x][y] == '1'
+
+        def dfs(x, y):
+            grid[x][y] = '-1'
+            for dx, dy in dirs:
+                nx, ny = x+dx, y+dy
+                if isValidPosition(nx, ny):
+                    dfs(nx, ny)
+
+        def bfs(x, y):
+            queue = [[x, y]]
+            while queue:
+                new_queue = []
+                for cx, cy in queue:
+                    grid[cx][cy] = '-1'
+                    for dx, dy in dirs:
+                        nx, ny = cx+dx, cy+dy
+                        if isValidPosition(nx, ny):
+                            new_queue.append([nx, ny])
+                            grid[nx][ny] = '-1'
+                queue = new_queue
+
+        for r in range(ROW):
+            for c in range(COL):
+                if grid[r][c] == '1':
+                    count += 1
+                    bfs(r, c)
+
+        return count
+</code></pre>
 <h2 id="dfs">DFS</h2>
 <h2 id="bst">BST</h2>
               
