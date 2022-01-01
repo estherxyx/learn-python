@@ -24,3 +24,10 @@ if lang == 'english':
 else:
     print(m1[1])
 ```
+
+```python
+# List Comprehension
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = [x for x in fruits if "a" in x]
+# >>> ['apple', 'banana', 'mango']
+```
