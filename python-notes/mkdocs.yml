@@ -1,5 +1,5 @@
 site_name: Learn Python
-theme: c
+theme: readthedocs
 docs_dir: src
 site_dir: generated
 
