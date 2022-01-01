@@ -1,3 +1,8 @@
+## Tree Traversal
+- preorder: mid left right
+- inorder: left mid right
+- postorder: left right mid
+
 ```python
 # https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 
@@ -9,7 +14,7 @@
 #         self.right = right
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        # left mid right
+        # inorder: left mid right
         ret = []
         if root:
             ret += self.inorderTraversal(root.left)
