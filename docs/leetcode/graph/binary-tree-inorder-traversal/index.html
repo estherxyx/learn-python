@@ -60,6 +60,8 @@
                     <li class="toctree-l1 current"><a class="reference internal current" href="#">Graph</a>
     <ul class="current">
                 <li class="toctree-l2 current"><a class="reference internal current" href="./">Binary tree inorder traversal</a>
+    <ul class="current">
+    </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
@@ -122,7 +124,13 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+                <h2 id="tree-traversal">Tree Traversal</h2>
+<ul>
+<li>preorder: mid left right</li>
+<li>inorder: left mid right</li>
+<li>postorder: left right mid</li>
+</ul>
+<pre><code class="language-python"># https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 
 # Definition for a binary tree node.
 # class TreeNode:
@@ -132,7 +140,7 @@
 #         self.right = right
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -&gt; List[int]:
-        # left mid right
+        # inorder: left mid right
         ret = []
         if root:
             ret += self.inorderTraversal(root.left)
