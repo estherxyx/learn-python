@@ -10,7 +10,7 @@ class Solution:
 
         i = 0
         j = len(nums) -1
-        while i <= j:
+        while j - i > 1:
             pivot = (j - i) // 2 + i
             val = nums[pivot]
             if val > target:
@@ -19,7 +19,11 @@ class Solution:
                 i = pivot + 1
             else:
                 return pivot
-        
-        return -1
 
+        if nums[i] == target:
+            return i
+        elif nums[j] == target:
+            return j
+        else:
+            return -1
 ```
