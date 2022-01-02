@@ -1,5 +1,5 @@
 ## WIP
-- https://leetcode-cn.com/study-plan/algorithms/?progress=2t9i8es
+- [leetcode::study-plan::algorithms](https://leetcode-cn.com/study-plan/algorithms/?progress=2t9i8es)
 
 ## Big-O
 - `O(1)`
