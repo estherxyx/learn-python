@@ -42,3 +42,9 @@ fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
 newlist = [x for x in fruits if "a" in x]
 # >>> ['apple', 'banana', 'mango']
 ```
+```python
+# setting up new array with length n ouside of loops 
+nums = [0]*length
+# inside the loop no "append" or self needed
+# see eg in squares-of-a-sorted-array
+```
