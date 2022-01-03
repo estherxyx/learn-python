@@ -90,6 +90,8 @@
                 <li class="toctree-l2"><a class="reference internal" href="../remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="./">Reverse string</a>
+    <ul class="current">
+    </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../rotate-array/">Rotate array</a>
                 </li>
@@ -146,7 +148,8 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python">class Solution:
+                <h2 id="reverse-string-as-in-list">reverse string as in list</h2>
+<pre><code class="language-python">class Solution:
     def reverseString(self, s: List[str]) -&gt; None:
         &quot;&quot;&quot;
         Do not return anything, modify s in-place instead.
@@ -158,6 +161,17 @@
             s[j], s[i] = s[i] + s[j]
             j -= 1
             i += 1
+</code></pre>
+<h2 id="reverse-string-as-string">reverse string as string ""</h2>
+<ul>
+<li>split("") to split " I love pizza" as per word list: ["I","love","pizza"]</li>
+<li>split("")[::-1] to reverse each word in list ["I","evol","azzip"]</li>
+<li>.join(split("")[::-1]) to make it as string </li>
+<li>and .join(split("")[::-1])[::-1] to reverse the whole thing </li>
+</ul>
+<pre><code class="language-python">class Solution:
+    def reverseWords(self, s: str) -&gt; str:
+        return &quot; &quot;.join(s.split(&quot; &quot;)[::-1])[::-1]     
 </code></pre>
               
             </div>
