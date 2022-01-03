@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Binary search - Learn Python</title>
+  <title>Two sum ii input array is sorted - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Binary search";
-    var mkdocs_page_input_path = "leetcode/binary-search/binary-search.md";
+    var mkdocs_page_name = "Two sum ii input array is sorted";
+    var mkdocs_page_input_path = "leetcode/list-map/two-sum-ii-input-array-is-sorted.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -55,13 +55,13 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../../data-structure/">Data structure</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary search</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Binary search</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary search</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/binary-search/">Binary search</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../first-bad-version/">First bad version</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/first-bad-version/">First bad version</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../search-insert-position/">Search insert position</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/search-insert-position/">Search insert position</a>
                 </li>
     </ul>
                     </li>
@@ -75,11 +75,11 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum/">Two sum</a>
                 </li>
     </ul>
                     </li>
@@ -128,11 +128,11 @@
         
       
         
-          <li>Binary search &raquo;</li>
+          <li>List map &raquo;</li>
         
       
     
-    <li>Binary search</li>
+    <li>Two sum ii input array is sorted</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -144,33 +144,20 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/binary-search/
+                <ul>
+<li>the same as two-sum</li>
+<li>just 1-indexed (1st index of the array is 1)</li>
+</ul>
+<pre><code class="language-python">class Solution:
+    def twoSum(self, numbers: List[int], target: int) -&gt; List[int]:
+        needed = {}
+        for i, n in enumerate(numbers):
+            if n in needed:
+                return [needed[n]+1, i+1]
 
-class Solution:
-    def search(self, nums: List[int], target: int) -&gt; int:
-        # eg
-        # nums = [-1,0,3,5,9,12], n = 5
-        # pivot = 2, val = 3 -&gt; [3...4...5]
-        # pivot = 4, val = 9
-
-        i = 0
-        j = len(nums) -1
-        while j - i &gt; 1:
-            pivot = (j - i) // 2 + i
-            val = nums[pivot]
-            if val &gt; target:
-                j = pivot - 1
-            elif val &lt; target:
-                i = pivot + 1
-            else:
-                return pivot
-
-        if nums[i] == target:
-            return i
-        elif nums[j] == target:
-            return j
-        else:
-            return -1
+            reminder = target - n
+            needed[reminder] = i
+        return [-1, -1]
 </code></pre>
               
             </div>
@@ -179,10 +166,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../first-bad-version/" class="btn btn-neutral float-right" title="First bad version">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../two-sum/" class="btn btn-neutral float-right" title="Two sum">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../data-structure/" class="btn btn-neutral" title="Data structure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../graph/number-of-islands/" class="btn btn-neutral" title="Number of islands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -208,10 +195,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../data-structure/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../graph/number-of-islands/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../first-bad-version/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../two-sum/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
