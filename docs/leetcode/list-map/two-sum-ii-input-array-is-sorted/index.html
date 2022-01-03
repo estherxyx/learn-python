@@ -145,18 +145,37 @@
             <div class="section">
               
                 <ul>
-<li>the same as two-sum</li>
-<li>just 1-indexed (1st index of the array is 1)</li>
+<li>solution #1 copied codes from two-sum </li>
+<li>solution #2 tried to two pointers method </li>
 </ul>
 <pre><code class="language-python">class Solution:
     def twoSum(self, numbers: List[int], target: int) -&gt; List[int]:
-        needed = {}
-        for i, n in enumerate(numbers):
-            if n in needed:
-                return [needed[n]+1, i+1]
+        # Solution #1
+        # copied codes from two-sum 
+        # added &quot;+1&quot; when return
+        # needed = {}
+        # for i, n in enumerate(numbers):
+        #     if n in needed:
+        #         return [needed[n]+1, i+1]
 
-            reminder = target - n
-            needed[reminder] = i
+        #     reminder = target - n
+        #     needed[reminder] = i
+        # return [-1, -1]
+
+        #Solution #2 two pointers
+        # i from head to tail 
+        # j from tail move backwards 
+        i = 0 
+        j = len(numbers)-1
+
+        while j&gt;i:
+            val = numbers[j] + numbers[i]
+            if val == target:
+                return[i+1,j+1]
+            elif val &gt; target:
+                j -= 1
+            else:
+                i += 1
         return [-1, -1]
 </code></pre>
               
