@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Search insert position - Learn Python</title>
+  <title>Reverse string - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Search insert position";
-    var mkdocs_page_input_path = "leetcode/binary-search/search-insert-position.md";
+    var mkdocs_page_name = "Reverse string";
+    var mkdocs_page_input_path = "leetcode/two-pointer/reverse-string.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -55,13 +55,13 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../../data-structure/">Data structure</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary search</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-search/">Binary search</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary search</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/binary-search/">Binary search</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../first-bad-version/">First bad version</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/first-bad-version/">First bad version</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Search insert position</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/search-insert-position/">Search insert position</a>
                 </li>
     </ul>
                     </li>
@@ -83,17 +83,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Two pointer</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/move-zeroes/">Move zeroes</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Two pointer</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../move-zeroes/">Move zeroes</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/reverse-string/">Reverse string</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Reverse string</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/rotate-array/">Rotate array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../rotate-array/">Rotate array</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/squares-of-a-sorted-array/">Squares of a sorted array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../squares-of-a-sorted-array/">Squares of a sorted array</a>
                 </li>
     </ul>
                     </li>
@@ -130,11 +130,11 @@
         
       
         
-          <li>Binary search &raquo;</li>
+          <li>Two pointer &raquo;</li>
         
       
     
-    <li>Search insert position</li>
+    <li>Reverse string</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -147,25 +147,17 @@
             <div class="section">
               
                 <pre><code class="language-python">class Solution:
-    def searchInsert(self, nums: List[int], target: int) -&gt; int:
-        i = 0
-        j = len(nums) -1
-        if nums[i] &gt;= target: 
-            return i 
-        elif nums[j] &lt; target: 
-            return j +1
+    def reverseString(self, s: List[str]) -&gt; None:
+        &quot;&quot;&quot;
+        Do not return anything, modify s in-place instead.
+        &quot;&quot;&quot;
+        i = 0 
+        j = len(s)-1
 
-        while j-i &gt;1:
-            pivot = (j - i) // 2 + i
-            val = nums[pivot] 
-            if val &gt; target:
-                j = pivot
-            elif val &lt; target:
-                i = pivot 
-            else:
-                return pivot
-
-        return j
+        while j&gt;i: 
+            s[j], s[i] = s[i] + s[j]
+            j -= 1
+            i += 1
 </code></pre>
               
             </div>
@@ -174,10 +166,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../graph/binary-tree-inorder-traversal/" class="btn btn-neutral float-right" title="Binary tree inorder traversal">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../rotate-array/" class="btn btn-neutral float-right" title="Rotate array">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../first-bad-version/" class="btn btn-neutral" title="First bad version"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../remove-duplicates-from-sorted-array/" class="btn btn-neutral" title="Remove duplicates from sorted array"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -203,10 +195,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../first-bad-version/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../remove-duplicates-from-sorted-array/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../graph/binary-tree-inorder-traversal/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../rotate-array/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
