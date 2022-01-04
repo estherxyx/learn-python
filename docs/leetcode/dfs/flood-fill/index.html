@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Binary tree level order traversal - Learn Python</title>
+  <title>Flood fill - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Binary tree level order traversal";
-    var mkdocs_page_input_path = "leetcode/graph/binary-tree-level-order-traversal.md";
+    var mkdocs_page_name = "Flood fill";
+    var mkdocs_page_input_path = "leetcode/dfs/flood-fill.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -65,11 +65,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Graph</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Binary tree level order traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dfs</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Flood fill</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../number-of-islands/">Number of islands</a>
                 </li>
@@ -130,11 +136,11 @@
         
       
         
-          <li>Graph &raquo;</li>
+          <li>Dfs &raquo;</li>
         
       
     
-    <li>Binary tree level order traversal</li>
+    <li>Flood fill</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -146,30 +152,27 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+                <pre><code class="language-python">class Solution:
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -&gt; List[List[int]]:
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:
-        self.ret = []
-        def bfs(node):
-            queue = [node]
-            while queue:
-                self.ret.append([n.val for n in queue])
-                new_queue = []
-                for cur_node in queue:
-                    for tmp_node in [cur_node.left, cur_node.right]:
-                        if tmp_node:
-                                new_queue.append(tmp_node)
-                queue = new_queue
-        if root:
-            bfs(root)
-        return self.ret
+        ROW = len(image)
+        COL = len(image[0])
+        valid_pixel = image[sr][sc]
+
+        def isValidPosition(x, y):
+            return x &gt;= 0 and y &gt;=0 and x &lt; ROW and y &lt; COL and image[x][y]== valid_pixel
+
+        def dfs(x, y):
+            if image[x][y] == valid_pixel: 
+                image[x][y] = newColor
+                for nx,ny in [(x,y+1),(x+1,y),(x,y-1),(x-1,y)]:
+                    if isValidPosition(nx,ny):
+                        dfs(nx,ny)
+
+        if valid_pixel != newColor:
+            dfs(sr,sc)
+            return image
+        else: return image
 </code></pre>
               
             </div>
@@ -181,7 +184,7 @@ class Solution:
         <a href="../number-of-islands/" class="btn btn-neutral float-right" title="Number of islands">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../binary-tree-inorder-traversal/" class="btn btn-neutral" title="Binary tree inorder traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../binary-tree/binary-tree-level-order-traversal/" class="btn btn-neutral" title="Binary tree level order traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -207,7 +210,7 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../binary-tree-inorder-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../binary-tree/binary-tree-level-order-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../number-of-islands/" style="color: #fcfcfc">Next &raquo;</a></span>

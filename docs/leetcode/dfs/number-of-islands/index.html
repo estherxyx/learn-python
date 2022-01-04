@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Two sum - Learn Python</title>
+  <title>Number of islands - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Two sum";
-    var mkdocs_page_input_path = "leetcode/list-map/two-sum.md";
+    var mkdocs_page_name = "Number of islands";
+    var mkdocs_page_input_path = "leetcode/dfs/number-of-islands.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -73,19 +73,19 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Dfs</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill/">Flood fill</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dfs</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../flood-fill/">Flood fill</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/number-of-islands/">Number of islands</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Number of islands</a>
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
                 </li>
     </ul>
                     </li>
@@ -136,11 +136,11 @@
         
       
         
-          <li>List map &raquo;</li>
+          <li>Dfs &raquo;</li>
         
       
     
-    <li>Two sum</li>
+    <li>Number of islands</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -152,38 +152,47 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/two-sum/
+                <pre><code class="language-python"># https://leetcode-cn.com/problems/number-of-islands/
+
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
-        # eg
-        # nums = [2,7,11,15], target = 9
-        # 2 -&gt; [7,11,15]
-        # 7 -&gt; [11,15]
-        # ...
+    def numIslands(self, grid: List[List[str]]) -&gt; int:
+        dirs = [[0,1],[1,0],[0,-1],[-1,0]]
+        ROW = len(grid)
+        COL = len(grid[0])
+        VISITED = '-1'
+        ISLAND = '1'
+        count = 0
 
-        ## sol1:
-        # for i, n in enumerate(nums):
-        #     for j, m in enumerate(nums):
-        #         if j &gt; i:
-        #             if n + m == target:
-        #                 return [i, j]
-        # return [-1, -1]
+        def isValidPosition(x, y):
+            return x &gt;= 0 and y &gt;= 0 and x &lt; ROW and y &lt; COL and grid[x][y] == ISLAND
 
-        ## sol2:
-        needed = {}
-        for i, n in enumerate(nums):
-            if n in needed:
-                return [needed[n], i]
+        def dfs(x, y):
+            grid[x][y] = VISITED
+            for dx, dy in dirs:
+                nx, ny = x+dx, y+dy
+                if isValidPosition(nx, ny):
+                    dfs(nx, ny)
 
-            reminder = target - n
-            needed[reminder] = i
-        return [-1, -1]
+        def bfs(x, y):
+            grid[x][y] = VISITED
+            queue = [[x, y]]
+            while queue:
+                new_queue = []
+                for cx, cy in queue:
+                    for dx, dy in dirs:
+                        nx, ny = cx+dx, cy+dy
+                        if isValidPosition(nx, ny):
+                            new_queue.append([nx, ny])
+                            grid[nx][ny] = VISITED
+                queue = new_queue       
 
-        ## demo
-        # i: 1
-        # n: 7
-        # needed: {7: 0}
-        # reminder: 7
+        for r in range(ROW):
+            for c in range(COL):
+                if grid[r][c] == ISLAND:
+                    count += 1
+                    bfs(r, c)
+
+        return count
 </code></pre>
               
             </div>
@@ -192,10 +201,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../two-pointer/move-zeroes/" class="btn btn-neutral float-right" title="Move zeroes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../list-map/two-sum-ii-input-array-is-sorted/" class="btn btn-neutral float-right" title="Two sum ii input array is sorted">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../two-sum-ii-input-array-is-sorted/" class="btn btn-neutral" title="Two sum ii input array is sorted"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../flood-fill/" class="btn btn-neutral" title="Flood fill"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -221,10 +230,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../two-sum-ii-input-array-is-sorted/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../flood-fill/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../two-pointer/move-zeroes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../list-map/two-sum-ii-input-array-is-sorted/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

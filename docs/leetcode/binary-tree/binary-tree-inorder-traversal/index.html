@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Number of islands - Learn Python</title>
+  <title>Binary tree inorder traversal - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Number of islands";
-    var mkdocs_page_input_path = "leetcode/graph/number-of-islands.md";
+    var mkdocs_page_name = "Binary tree inorder traversal";
+    var mkdocs_page_input_path = "leetcode/binary-tree/binary-tree-inorder-traversal.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -65,13 +65,21 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Graph</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary tree</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Binary tree inorder traversal</a>
+    <ul class="current">
+    </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Number of islands</a>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Dfs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill/">Flood fill</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/number-of-islands/">Number of islands</a>
                 </li>
     </ul>
                     </li>
@@ -130,11 +138,11 @@
         
       
         
-          <li>Graph &raquo;</li>
+          <li>Binary tree &raquo;</li>
         
       
     
-    <li>Number of islands</li>
+    <li>Binary tree inorder traversal</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -146,47 +154,29 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/number-of-islands/
+                <h2 id="tree-traversal">Tree Traversal</h2>
+<ul>
+<li>preorder: mid left right</li>
+<li>inorder: left mid right</li>
+<li>postorder: left right mid</li>
+</ul>
+<pre><code class="language-python"># https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -&gt; int:
-        dirs = [[0,1],[1,0],[0,-1],[-1,0]]
-        ROW = len(grid)
-        COL = len(grid[0])
-        VISITED = '-1'
-        ISLAND = '1'
-        count = 0
-
-        def isValidPosition(x, y):
-            return x &gt;= 0 and y &gt;= 0 and x &lt; ROW and y &lt; COL and grid[x][y] == ISLAND
-
-        def dfs(x, y):
-            grid[x][y] = VISITED
-            for dx, dy in dirs:
-                nx, ny = x+dx, y+dy
-                if isValidPosition(nx, ny):
-                    dfs(nx, ny)
-
-        def bfs(x, y):
-            grid[x][y] = VISITED
-            queue = [[x, y]]
-            while queue:
-                new_queue = []
-                for cx, cy in queue:
-                    for dx, dy in dirs:
-                        nx, ny = cx+dx, cy+dy
-                        if isValidPosition(nx, ny):
-                            new_queue.append([nx, ny])
-                            grid[nx][ny] = VISITED
-                queue = new_queue       
-
-        for r in range(ROW):
-            for c in range(COL):
-                if grid[r][c] == ISLAND:
-                    count += 1
-                    bfs(r, c)
-
-        return count
+    def inorderTraversal(self, root: Optional[TreeNode]) -&gt; List[int]:
+        # inorder: left mid right
+        ret = []
+        if root:
+            ret += self.inorderTraversal(root.left)
+            ret.append(root.val)
+            ret += self.inorderTraversal(root.right)
+        return ret
 </code></pre>
               
             </div>
@@ -195,10 +185,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../list-map/two-sum-ii-input-array-is-sorted/" class="btn btn-neutral float-right" title="Two sum ii input array is sorted">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../binary-tree-level-order-traversal/" class="btn btn-neutral float-right" title="Binary tree level order traversal">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../binary-tree-level-order-traversal/" class="btn btn-neutral" title="Binary tree level order traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../binary-search/search-insert-position/" class="btn btn-neutral" title="Search insert position"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -224,10 +214,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../binary-tree-level-order-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../binary-search/search-insert-position/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../list-map/two-sum-ii-input-array-is-sorted/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../binary-tree-level-order-traversal/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
