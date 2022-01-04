@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Flood fill - Learn Python</title>
+  <title>Merge two binary trees - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Flood fill";
-    var mkdocs_page_input_path = "leetcode/dfs/flood-fill.md";
+    var mkdocs_page_name = "Merge two binary trees";
+    var mkdocs_page_input_path = "leetcode/binary-tree/merge-two-binary-trees.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -65,25 +65,25 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary tree</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Merge two binary trees</a>
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dfs</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../flood-fill-myths/">Flood fill myths</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Dfs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill-myths/">Flood fill myths</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Flood fill</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill/">Flood fill</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../max-area-of-island/">Max area of island</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/max-area-of-island/">Max area of island</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../number-of-islands/">Number of islands</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/number-of-islands/">Number of islands</a>
                 </li>
     </ul>
                     </li>
@@ -142,11 +142,11 @@
         
       
         
-          <li>Dfs &raquo;</li>
+          <li>Binary tree &raquo;</li>
         
       
     
-    <li>Flood fill</li>
+    <li>Merge two binary trees</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -158,27 +158,29 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python">class Solution:
-    def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -&gt; List[List[int]]:
+                <pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def mergeTrees(self, root1: TreeNode, root2: TreeNode) -&gt; TreeNode:
 
-        ROW = len(image)
-        COL = len(image[0])
-        valid_pixel = image[sr][sc]
+        def dfs(root1,root2):
+            root = TreeNode()
+            if not root1: 
+                return root2
+            elif not root2: 
+                return root1
+            else:
+                root.val = root1.val + root2.val
+                root.left = dfs(root1.left, root2.left)
+                root.right = dfs(root1.right, root2.right)
+            return root
 
-        def isValidPosition(x, y):
-            return x &gt;= 0 and y &gt;=0 and x &lt; ROW and y &lt; COL and image[x][y]== valid_pixel
+        return dfs(root1,root2)
 
-        def dfs(x, y):
-            if image[x][y] == valid_pixel: 
-                image[x][y] = newColor
-                for nx,ny in [(x,y+1),(x+1,y),(x,y-1),(x-1,y)]:
-                    if isValidPosition(nx,ny):
-                        dfs(nx,ny)
-
-        if valid_pixel != newColor:
-            dfs(sr,sc)
-            return image
-        else: return image
 </code></pre>
               
             </div>
@@ -187,10 +189,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../max-area-of-island/" class="btn btn-neutral float-right" title="Max area of island">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../dfs/flood-fill-myths/" class="btn btn-neutral float-right" title="Flood fill myths">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../flood-fill-myths/" class="btn btn-neutral" title="Flood fill myths"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../binary-tree-level-order-traversal/" class="btn btn-neutral" title="Binary tree level order traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -216,10 +218,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../flood-fill-myths/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../binary-tree-level-order-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../max-area-of-island/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../dfs/flood-fill-myths/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
