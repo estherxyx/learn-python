@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Search insert position - Learn Python</title>
+  <title>Flood fill myths - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Search insert position";
-    var mkdocs_page_input_path = "leetcode/binary-search/search-insert-position.md";
+    var mkdocs_page_name = "Flood fill myths";
+    var mkdocs_page_input_path = "leetcode/dfs/flood-fill-myths.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -55,13 +55,13 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../../data-structure/">Data structure</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary search</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-search/">Binary search</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary search</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/binary-search/">Binary search</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../first-bad-version/">First bad version</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/first-bad-version/">First bad version</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Search insert position</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-search/search-insert-position/">Search insert position</a>
                 </li>
     </ul>
                     </li>
@@ -73,15 +73,15 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Dfs</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill-myths/">Flood fill myths</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dfs</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Flood fill myths</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill/">Flood fill</a>
+                <li class="toctree-l2"><a class="reference internal" href="../flood-fill/">Flood fill</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/max-area-of-island/">Max area of island</a>
+                <li class="toctree-l2"><a class="reference internal" href="../max-area-of-island/">Max area of island</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/number-of-islands/">Number of islands</a>
+                <li class="toctree-l2"><a class="reference internal" href="../number-of-islands/">Number of islands</a>
                 </li>
     </ul>
                     </li>
@@ -140,11 +140,11 @@
         
       
         
-          <li>Binary search &raquo;</li>
+          <li>Dfs &raquo;</li>
         
       
     
-    <li>Search insert position</li>
+    <li>Flood fill myths</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -157,25 +157,33 @@
             <div class="section">
               
                 <pre><code class="language-python">class Solution:
-    def searchInsert(self, nums: List[int], target: int) -&gt; int:
-        i = 0
-        j = len(nums) -1
-        if nums[i] &gt;= target: 
-            return i 
-        elif nums[j] &lt; target: 
-            return j +1
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -&gt; List[List[int]]:
 
-        while j-i &gt;1:
-            pivot = (j - i) // 2 + i
-            val = nums[pivot] 
-            if val &gt; target:
-                j = pivot
-            elif val &lt; target:
-                i = pivot 
-            else:
-                return pivot
+        ROW = len(image)
+        COL = len(image[0])
+        valid_pixel = image[sr][sc]
+        dirs = [[0,1],[1,0],[0,-1],[-1,0]]
 
-        return j
+        def isValidPosition(x, y):
+            return x &gt;= 0 and y &gt;=0 and x &lt; ROW and y &lt; COL and image[x][y]== valid_pixel
+
+        def dfs(x, y):
+            if image[x][y] == valid_pixel: 
+                image[x][y] = newColor
+                # for nx,ny in [(x,y+1),(x+1,y),(x,y-1),(x-1,y)]:
+                for dx, dy in dirs:
+                    nx,ny = x+dy,y+dy
+                    if isValidPosition(nx,ny):
+                        dfs(nx,ny)
+
+        if valid_pixel == newColor:
+            return image
+        else:
+            for r in range(ROW):
+                for c in range(COL):
+                    if image[r][c] == valid_pixel:
+                        dfs(r, c)
+        return image
 </code></pre>
               
             </div>
@@ -184,10 +192,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../binary-tree/binary-tree-inorder-traversal/" class="btn btn-neutral float-right" title="Binary tree inorder traversal">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../flood-fill/" class="btn btn-neutral float-right" title="Flood fill">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../first-bad-version/" class="btn btn-neutral" title="First bad version"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../binary-tree/binary-tree-level-order-traversal/" class="btn btn-neutral" title="Binary tree level order traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -213,10 +221,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../first-bad-version/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../binary-tree/binary-tree-level-order-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../binary-tree/binary-tree-inorder-traversal/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../flood-fill/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
