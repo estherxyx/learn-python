@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Binary tree level order traversal - Learn Python</title>
+  <title>3sum - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Binary tree level order traversal";
-    var mkdocs_page_input_path = "leetcode/binary-tree/binary-tree-level-order-traversal.md";
+    var mkdocs_page_name = "3sum";
+    var mkdocs_page_input_path = "leetcode/two-pointer/3sum.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -65,13 +65,13 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary tree</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Binary tree level order traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../merge-two-binary-trees/">Merge two binary trees</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
                 </li>
     </ul>
                     </li>
@@ -103,21 +103,21 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Two pointer</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/3sum/">3sum</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Two pointer</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">3sum</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/container-with-most-water/">Container with most water</a>
+                <li class="toctree-l2"><a class="reference internal" href="../container-with-most-water/">Container with most water</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/move-zeroes/">Move zeroes</a>
+                <li class="toctree-l2"><a class="reference internal" href="../move-zeroes/">Move zeroes</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/reverse-string/">Reverse string</a>
+                <li class="toctree-l2"><a class="reference internal" href="../reverse-string/">Reverse string</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/rotate-array/">Rotate array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../rotate-array/">Rotate array</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/squares-of-a-sorted-array/">Squares of a sorted array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../squares-of-a-sorted-array/">Squares of a sorted array</a>
                 </li>
     </ul>
                     </li>
@@ -154,11 +154,11 @@
         
       
         
-          <li>Binary tree &raquo;</li>
+          <li>Two pointer &raquo;</li>
         
       
     
-    <li>Binary tree level order traversal</li>
+    <li>3sum</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -170,30 +170,31 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+                <pre><code class="language-python">class Solution:
+    def threeSum(self, nums: List[int]) -&gt; List[List[int]]:
+        nums.sort()
+        n = len(nums)
+        ans = []
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:
-        self.ret = []
-        def bfs(node):
-            queue = [node]
-            while queue:
-                self.ret.append([n.val for n in queue])
-                new_queue = []
-                for cur_node in queue:
-                    for tmp_node in [cur_node.left, cur_node.right]:
-                        if tmp_node:
-                                new_queue.append(tmp_node)
-                queue = new_queue
-        if root:
-            bfs(root)
-        return self.ret
+        if n&lt;3: return nums
+
+        for i in range(n):
+            if i&gt;0 and nums[i] == nums[i-1]:
+                continue 
+            k = n-1
+            target = 0 - nums[i]
+
+            for j in range(i+1,n):
+                if j&gt;i+1 and nums[j] == nums[j-1]:
+                    continue
+                while j&lt;k and nums[j] + nums[k] &gt;target: 
+                    k -= 1
+                if j &gt;=k:
+                    break
+                if nums[j] + nums[k] == target:
+                    ans.append([nums[i],nums[j],nums[k]])
+
+        return ans
 </code></pre>
               
             </div>
@@ -202,10 +203,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../merge-two-binary-trees/" class="btn btn-neutral float-right" title="Merge two binary trees">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../container-with-most-water/" class="btn btn-neutral float-right" title="Container with most water">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../binary-tree-inorder-traversal/" class="btn btn-neutral" title="Binary tree inorder traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../list-map/two-sum/" class="btn btn-neutral" title="Two sum"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -231,10 +232,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../binary-tree-inorder-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../list-map/two-sum/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../merge-two-binary-trees/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../container-with-most-water/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
