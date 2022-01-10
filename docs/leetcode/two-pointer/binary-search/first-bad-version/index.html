@@ -8,24 +8,24 @@
   
   
   
-  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
   <title>First bad version - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../../css/theme.css" />
-  <link rel="stylesheet" href="../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="../../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  <link href="../../../css/extra.css" rel="stylesheet" />
+  <link href="../../../../css/extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "First bad version";
-    var mkdocs_page_input_path = "leetcode/binary-search/first-bad-version.md";
+    var mkdocs_page_input_path = "leetcode/two-pointer/binary-search/first-bad-version.md";
     var mkdocs_page_url = null;
   </script>
   
-  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
 </head>
@@ -38,9 +38,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Learn Python</a>
+        <a href="../../../.." class="icon icon-home"> Learn Python</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -48,85 +48,98 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Backend</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../backend/keywords/">Cloud Services</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Leetcode</span></p>
                 <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../../data-structure/">Data structure</a>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary search</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-search/">Binary search</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">First bad version</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../search-insert-position/">Search insert position</a>
-                </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../data-structure/">Data structure</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
                 </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Dfs</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill-myths/">Flood fill myths</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../dfs/flood-fill-myths/">Flood fill myths</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill/">Flood fill</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../dfs/flood-fill/">Flood fill</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/max-area-of-island/">Max area of island</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../dfs/max-area-of-island/">Max area of island</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/number-of-islands/">Number of islands</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../dfs/number-of-islands/">Number of islands</a>
                 </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Linked list</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/middle-of-the-linked-list/">Middle of the linked list</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../linked-list/middle-of-the-linked-list/">Middle of the linked list</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/remove-nth-node-from-end-of-list/">Remove nth node from end of list</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../linked-list/remove-nth-node-from-end-of-list/">Remove nth node from end of list</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../linked-list/reverse-linked-list/">Definition for singly-linked list.</a>
                 </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../../list-map/two-sum/">Two sum</a>
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Two pointer</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Two pointer</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../3sum/">3sum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../container-with-most-water/">Container with most water</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../move-zeroes/">Move zeroes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reverse-string/">Reverse string</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../rotate-array/">Rotate array</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../squares-of-a-sorted-array/">Squares of a sorted array</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Binary search</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../binary-search/">Binary search</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">First bad version</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../search-insert-position/">Search insert position</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Slicing window</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/3sum/">3sum</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../slicing-window/longest-substring-without-repeating-characters/">Longest substring without repeating characters</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/container-with-most-water/">Container with most water</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/move-zeroes/">Move zeroes</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/reverse-string/">Reverse string</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/rotate-array/">Rotate array</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/squares-of-a-sorted-array/">Squares of a sorted array</a>
+    </ul>
                 </li>
     </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Mkdocs</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../mkdocs/config/">Config</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../mkdocs/config/">Config</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../mkdocs/usage/">Usage</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../mkdocs/usage/">Usage</a>
                     </li>
                 </ul>
       </div>
@@ -138,7 +151,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Learn Python</a>
+        <a href="../../../..">Learn Python</a>
       </nav>
 
       
@@ -146,11 +159,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+    <li><a href="../../../..">Docs</a> &raquo;</li>
     
       
         
           <li>Leetcode &raquo;</li>
+        
+      
+        
+          <li>Two pointer &raquo;</li>
         
       
         
@@ -240,10 +257,10 @@ class Solution:
     
   </span>
 </div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme_extra.js" defer></script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="../../../search/main.js" defer></script>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme_extra.js" defer></script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);

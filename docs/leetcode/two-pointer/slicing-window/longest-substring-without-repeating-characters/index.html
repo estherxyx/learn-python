@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
+  <title>Longest substring without repeating characters - Learn Python</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../../../../css/extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Longest substring without repeating characters";
+    var mkdocs_page_input_path = "leetcode/two-pointer/slicing-window/longest-substring-without-repeating-characters.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../../.." class="icon icon-home"> Learn Python</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Backend</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../backend/keywords/">Cloud Services</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Leetcode</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../../data-structure/">Data structure</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Dfs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../dfs/flood-fill-myths/">Flood fill myths</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../dfs/flood-fill/">Flood fill</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../dfs/max-area-of-island/">Max area of island</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../dfs/number-of-islands/">Number of islands</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Linked list</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../linked-list/middle-of-the-linked-list/">Middle of the linked list</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../linked-list/remove-nth-node-from-end-of-list/">Remove nth node from end of list</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../linked-list/reverse-linked-list/">Definition for singly-linked list.</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../list-map/two-sum/">Two sum</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Two pointer</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../../3sum/">3sum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../container-with-most-water/">Container with most water</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../move-zeroes/">Move zeroes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../reverse-string/">Reverse string</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../rotate-array/">Rotate array</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../squares-of-a-sorted-array/">Squares of a sorted array</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Binary search</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/binary-search/">Binary search</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/first-bad-version/">First bad version</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/search-insert-position/">Search insert position</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Slicing window</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">Longest substring without repeating characters</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Mkdocs</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../mkdocs/config/">Config</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../../mkdocs/usage/">Usage</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../..">Learn Python</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Leetcode &raquo;</li>
+        
+      
+        
+          <li>Two pointer &raquo;</li>
+        
+      
+        
+          <li>Slicing window &raquo;</li>
+        
+      
+    
+    <li>Longest substring without repeating characters</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <p><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters">link</a></p>
+<pre><code class="language-python">class Solution:
+    def lengthOfLongestSubstring(self, s: str) -&gt; int:
+        ## sol 1:
+        # ret = 0
+        # n = len(s)
+        # def isUnique(word):
+        #     return len(word) == len(set(list(word)))
+
+        # for i in range(n):
+        #     for j in range(i, n):
+        #         guess = s[i:j+1]
+        #         if isUnique(guess):
+        #             ret = max(ret, len(guess))
+        # return ret
+
+        ## sol 2:
+        # acbc
+        # [a]cbc,  {a: 0}, i=0,j=0
+        # [ac]bc, {a:0, c:1}, i=0,j=1
+        # [acb]c, {a:0, c:1, b:2}, i=0,j=2
+        # ac[bc], {a:0, c:1, b:2}, c:3, i=1+1=2, j=3
+
+        ret = 0
+        j = 0
+        i = 0
+        dic = {} # {char: index} 
+        while j &lt; len(s):   
+            char = s[j] 
+            if char in dic:
+                new_i = dic[char] + 1
+                if new_i &gt; i:
+                    i = new_i
+            dic[char] = j
+            # print(s[i:j+1])
+            ret = max(ret, j-i+1)
+            j += 1
+        return ret
+
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../../mkdocs/config/" class="btn btn-neutral float-right" title="Config">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../binary-search/search-insert-position/" class="btn btn-neutral" title="Search insert position"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../binary-search/search-insert-position/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../../mkdocs/config/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme_extra.js" defer></script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
