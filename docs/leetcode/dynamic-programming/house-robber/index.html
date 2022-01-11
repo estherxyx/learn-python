@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Squares of a sorted array - Learn Python</title>
+  <title>House robber - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Squares of a sorted array";
-    var mkdocs_page_input_path = "leetcode/two-pointer/squares-of-a-sorted-array.md";
+    var mkdocs_page_name = "House robber";
+    var mkdocs_page_input_path = "leetcode/dynamic-programming/house-robber.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -82,9 +82,9 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Dynamic programming</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/house-robber/">House robber</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dynamic programming</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">House robber</a>
                 </li>
     </ul>
                     </li>
@@ -106,35 +106,35 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Two pointer</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../3sum/">3sum</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Two pointer</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/3sum/">3sum</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../container-with-most-water/">Container with most water</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/container-with-most-water/">Container with most water</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../move-zeroes/">Move zeroes</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/move-zeroes/">Move zeroes</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../reverse-string/">Reverse string</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/reverse-string/">Reverse string</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../rotate-array/">Rotate array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/rotate-array/">Rotate array</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Squares of a sorted array</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/squares-of-a-sorted-array/">Squares of a sorted array</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="#">Binary search</a>
     <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../binary-search/binary-search/">Binary search</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/binary-search/">Binary search</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../binary-search/first-bad-version/">First bad version</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/first-bad-version/">First bad version</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../binary-search/search-insert-position/">Search insert position</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/search-insert-position/">Search insert position</a>
                 </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="#">Slicing window</a>
     <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../slicing-window/longest-substring-without-repeating-characters/">Longest substring without repeating characters</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/slicing-window/longest-substring-without-repeating-characters/">Longest substring without repeating characters</a>
                 </li>
     </ul>
                 </li>
@@ -173,11 +173,11 @@
         
       
         
-          <li>Two pointer &raquo;</li>
+          <li>Dynamic programming &raquo;</li>
         
       
     
-    <li>Squares of a sorted array</li>
+    <li>House robber</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -189,22 +189,27 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python">class Solution:
-    def sortedSquares(self, nums: List[int]) -&gt; List[int]:
-        i = 0
-        j = len(nums)-1
-        k = len(nums)-1
-        nums_squared = [0]*len(nums)
+                <p><a href="https://leetcode-cn.com/problems/house-robber/submissions/">link</a></p>
+<pre><code class="language-python">class Solution:
+    def rob(self, nums: List[int]) -&gt; int:
+        # dynamic_programming
+        dp = {} # {room : val}
+        dp[0] = nums[0]
+        if len(nums) == 1:
+            return dp[0]
 
-        while i&lt;= j:
-            if nums[i] *nums[i] &gt; nums[j] * nums[j]:
-               nums_squared[k] =  nums[i] *nums[i]
-               i += 1
-            else:
-                nums_squared[k] =  nums[j] *nums[j]
-                j -= 1
-            k -=1
-        return nums_squared 
+        dp[1] = max(nums[0], nums[1])
+        if len(nums) == 2:
+            return dp[1]
+
+        for room, val in enumerate(nums): #room=2
+            if room &gt;= 2:
+                dp[room] = max(
+                    dp[room-1],
+                    val+dp[room-2]
+                )
+        return max(dp.values())
+
 </code></pre>
               
             </div>
@@ -213,10 +218,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../binary-search/binary-search/" class="btn btn-neutral float-right" title="Binary search">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../linked-list/middle-of-the-linked-list/" class="btn btn-neutral float-right" title="Middle of the linked list">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../rotate-array/" class="btn btn-neutral" title="Rotate array"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../dfs/number-of-islands/" class="btn btn-neutral" title="Number of islands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -242,10 +247,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../rotate-array/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../dfs/number-of-islands/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../binary-search/binary-search/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../linked-list/middle-of-the-linked-list/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
