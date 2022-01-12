@@ -197,7 +197,7 @@
         n = len(nums)
         ans = []
 
-        if n&lt;3: return nums
+        if n&lt;3: return ans
 
         for i in range(n):
             if i&gt;0 and nums[i] == nums[i-1]:
@@ -208,9 +208,9 @@
             for j in range(i+1,n):
                 if j&gt;i+1 and nums[j] == nums[j-1]:
                     continue
-                while j&lt;k and nums[j] + nums[k] &gt;target: 
+                while j&lt;k and nums[j] + nums[k] &gt; target: 
                     k -= 1
-                if j &gt;=k:
+                if j==k:
                     break
                 if nums[j] + nums[k] == target:
                     ans.append([nums[i],nums[j],nums[k]])
