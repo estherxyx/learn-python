@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Two sum - Learn Python</title>
+  <title>01 matrix - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Two sum";
-    var mkdocs_page_input_path = "leetcode/list-map/two-sum.md";
+    var mkdocs_page_name = "01 matrix";
+    var mkdocs_page_input_path = "leetcode/bfs/01-matrix.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -60,9 +60,9 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../../data-structure/">Data structure</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Bfs</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../bfs/01-matrix/">01 matrix</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Bfs</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">01 matrix</a>
                 </li>
     </ul>
                     </li>
@@ -106,11 +106,11 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
                 </li>
     </ul>
                     </li>
@@ -181,11 +181,11 @@
         
       
         
-          <li>List map &raquo;</li>
+          <li>Bfs &raquo;</li>
         
       
     
-    <li>Two sum</li>
+    <li>01 matrix</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -197,38 +197,38 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/two-sum/
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
-        # eg
-        # nums = [2,7,11,15], target = 9
-        # 2 -&gt; [7,11,15]
-        # 7 -&gt; [11,15]
-        # ...
+                <p><a href="https://leetcode-cn.com/problems/01-matrix/submissions/">link</a></p>
+<pre><code class="language-python">class Solution:
+    def updateMatrix(self, mat: List[List[int]]) -&gt; List[List[int]]:
 
-        ## sol1:
-        # for i, n in enumerate(nums):
-        #     for j, m in enumerate(nums):
-        #         if j &gt; i:
-        #             if n + m == target:
-        #                 return [i, j]
-        # return [-1, -1]
+        ROW, COL = len(mat), len(mat[0])
+        dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        dist = 0
+        visited = [[0] * ROW for _ in range(COL)]# new ROW*COL matrix
+        res = [[0] * ROW for _ in range(COL)]# new ROW*COL matrix
+        queue = collections.deque() # double ended queue
 
-        ## sol2:
-        needed = {}
-        for i, n in enumerate(nums):
-            if n in needed:
-                return [needed[n], i]
+        #create new queue with all the zeros from mat 
+        for i in range(ROW):
+            for j in range(COL):
+                if mat[i][j] == 0:
+                    queue.append((i, j))
+                    visited[i][j] = 1 # since we cannot mark &quot;-1&quot; this time 
 
-            reminder = target - n
-            needed[reminder] = i
-        return [-1, -1]
-
-        ## demo
-        # i: 1
-        # n: 7
-        # needed: {7: 0}
-        # reminder: 7
+        # bfs starts here
+        while queue:
+            for i in range(len(queue)):
+                x, y = queue.popleft()
+                if mat[x][y] == 1:
+                    res[x][y] = dist
+                for dx, dy in dirs:
+                    nx, ny = x + dx, y + dy
+                    if nx &lt; 0 or nx &gt;= ROW or ny &lt; 0 or ny &gt;= COL or visited[nx][ny] == 1:
+                        continue
+                    queue.append((nx, ny))
+                    visited[nx][ny] = 1
+            dist += 1
+        return res
 </code></pre>
               
             </div>
@@ -237,10 +237,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../two-pointer/3sum/" class="btn btn-neutral float-right" title="3sum">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../binary-tree/binary-tree-inorder-traversal/" class="btn btn-neutral float-right" title="Binary tree inorder traversal">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../two-sum-ii-input-array-is-sorted/" class="btn btn-neutral" title="Two sum ii input array is sorted"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../data-structure/" class="btn btn-neutral" title="Data structure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -266,10 +266,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../two-sum-ii-input-array-is-sorted/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../data-structure/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../two-pointer/3sum/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../binary-tree/binary-tree-inorder-traversal/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
