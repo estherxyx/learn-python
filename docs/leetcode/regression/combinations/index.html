@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Definition for singly-linked list. - Learn Python</title>
+  <title>Combinations - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Definition for singly-linked list.";
-    var mkdocs_page_input_path = "leetcode/linked-list/reverse-linked-list.md";
+    var mkdocs_page_name = "Combinations";
+    var mkdocs_page_input_path = "leetcode/regression/combinations.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -98,15 +98,11 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Linked list</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../middle-of-the-linked-list/">Middle of the linked list</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Linked list</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/middle-of-the-linked-list/">Middle of the linked list</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../remove-nth-node-from-end-of-list/">Remove nth node from end of list</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Definition for singly-linked list.</a>
-    <ul class="current">
-    </ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/remove-nth-node-from-end-of-list/">Remove nth node from end of list</a>
                 </li>
     </ul>
                     </li>
@@ -118,9 +114,13 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Regression</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../regression/merge-two-sorted-lists/">Merge two sorted lists</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Regression</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Combinations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../merge-two-sorted-lists/">Merge two sorted lists</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../reverse-linked-list/">Definition for singly-linked list.</a>
                 </li>
     </ul>
                     </li>
@@ -191,11 +191,11 @@
         
       
         
-          <li>Linked list &raquo;</li>
+          <li>Regression &raquo;</li>
         
       
     
-    <li>Definition for singly-linked list.</li>
+    <li>Combinations</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -207,41 +207,24 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="definition-for-singly-linked-list">Definition for singly-linked list.</h1>
-<h1 id="class-listnode">class ListNode:</h1>
-<h1 id="def-initself-val0-nextnone">def <strong>init</strong>(self, val=0, next=None):</h1>
-<h1 id="selfval-val">self.val = val</h1>
-<h1 id="selfnext-next">self.next = next</h1>
-<p>class Solution:
-    def reverseList(self, head: ListNode) -&gt; ListNode:
-        ## sol1:
-        # nums = []   <br />
-        # dummy = ListNode()
-        # dummy.next = head</p>
-<pre><code>    # while head:
-    #     nums.append(head.val)
-    #     head = head.next
+                <p><a href="https://leetcode-cn.com/problems/combinations/">leetcode.cn</a></p>
+<pre><code class="language-python">class Solution:
+    def combine(self, n: int, k: int) -&gt; List[List[int]]:
+        res = []
 
-    # head = dummy.next
+        def helper(start,route):
+            if len(route) == k:
+                res.append(route[:])
+                return res
 
-    # for n in nums[::-1]:
-    #     head.val = n
-    #     head = head.next
-    # return dummy.next
+            for i in range(start, n+1):
+                route.append(i)
+                helper(i+1, route)
+                route.pop()
+        helper(1, [])
+        return res
 
-    ## sol2
-    def helper(prev, cur):
-        if cur.next:
-            tmp = cur.next
-            cur.next = prev
-            return helper(cur, tmp)
-        else:
-            cur.next = prev
-            return cur
-    if head:
-        return helper(None, head)
-    else:
-        return None
+
 </code></pre>
               
             </div>
@@ -250,10 +233,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../list-map/two-sum-ii-input-array-is-sorted/" class="btn btn-neutral float-right" title="Two sum ii input array is sorted">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../merge-two-sorted-lists/" class="btn btn-neutral float-right" title="Merge two sorted lists">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../remove-nth-node-from-end-of-list/" class="btn btn-neutral" title="Remove nth node from end of list"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../list-map/two-sum/" class="btn btn-neutral" title="Two sum"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -279,10 +262,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../remove-nth-node-from-end-of-list/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../list-map/two-sum/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../list-map/two-sum-ii-input-array-is-sorted/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../merge-two-sorted-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
