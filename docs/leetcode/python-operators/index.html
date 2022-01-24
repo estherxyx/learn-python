@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Data structure - Learn Python</title>
+  <title>Python operators - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Data structure";
-    var mkdocs_page_input_path = "leetcode/data-structure.md";
+    var mkdocs_page_name = "Python operators";
+    var mkdocs_page_input_path = "leetcode/python-operators.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -65,11 +65,17 @@
                 </ul>
                 <p class="caption"><span class="caption-text">Leetcode</span></p>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Data structure</a>
-    <ul class="current">
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../data-structure/">Data structure</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../python-operators/">Python operators</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Python operators</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#operator">~ operator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operator-bitwise-and">&amp; operator (bitwise 'and')</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operator-bitwise-or">| operator (bitwise 'or')</a>
+    </li>
+    </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Bfs</a>
     <ul>
@@ -238,7 +244,7 @@
         
       
     
-    <li>Data structure</li>
+    <li>Python operators</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -250,110 +256,30 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="wip">WIP</h2>
-<ul>
-<li><a href="https://leetcode-cn.com/study-plan/algorithms/?progress=2t9i8es">leetcode::study-plan::algorithms</a></li>
-</ul>
-<h2 id="ood-object-oriented-design">OOD - object-oriented-design</h2>
-<pre><code class="language-python"># Instance -&gt; Class
-# Instance -&gt; method/function, attribute/property
-# Object -&gt; JSON -&gt; {&quot;name&quot;: &quot;Andy&quot;}
-class Car:
-    def __init__(self, brand):
-        self.speed = 0
-        self.val = 2
-        self.brand = brand
-
-    def run(self, speed):
-        self.speed = speed
-
-class Truck(Car):
-    def __init__(self, brand):
-        super(brand)
-        self.load = 200
-
-car1 = Car(&quot;brand1&quot;) # {&quot;speed&quot;: 0, &quot;brand&quot;: &quot;brand1&quot;}
-car2 = Car(&quot;brand2&quot;) # {&quot;speed&quot;: 0, &quot;brand&quot;: &quot;brand2&quot;}
-print(car1.speed) # 0
-car1.run(10)
-print(car1.speed) # 10
-car1 = Truck(&quot;brand1&quot;)
-
-class Person:
-    def __init__(self, dna=&quot;&quot;, child=None):
-        self.dna = dna
-        self.child = child
-
-p1 = Person(&quot;aaaa&quot;)
-p2 = Person(&quot;bbbb&quot;)
-p3 = Person(&quot;cccc&quot;)
-p1.child = p2
-p2.child = p3
-
-def reverseList(self, person: Person) -&gt; Person:
-    people = [] # [&quot;aaaa&quot;,]
-
-    god = Person()
-    god.child = person
-
-    while person: #p3
-        people.append(person.dna)
-        person = person.child
-
-    p1 = god.child
-
-reverseList(p1)
-
-
+                <h2 id="bitwise-operators-in-python">Bitwise Operators in python</h2>
+<h3 id="operator">~ operator</h3>
+<pre><code class="language-python">~12 
+# &gt;&gt;&gt; -13 
+# bit complement of 12 
+# bin(12): 00001100
+# ~bin(12):11110011 
+# 2's complement of -13 is 11110011
 </code></pre>
-<h2 id="big-o">Big-O</h2>
-<ul>
-<li><code>O(1)</code></li>
-<li><code>O(n)</code>: number of elements -&gt; n</li>
-<li><code>O(n^2)</code></li>
-</ul>
-<p><img alt="" src="https://cdn-media-1.freecodecamp.org/images/1*KfZYFUT2OKfjekJlCeYvuQ.jpeg" /></p>
-<h2 id="python-keywords">Python Keywords</h2>
-<pre><code class="language-python"># enumerate
-for i, n in enumerate([10,20,30]): 
-    print(i, n)
-
-# &gt;&gt;&gt; 0, 10
-# &gt;&gt;&gt; 1, 20
-# &gt;&gt;&gt; 2, 30
+<h3 id="operator-bitwise-and">&amp; operator (bitwise 'and')</h3>
+<pre><code class="language-python">12&amp;13 
+# &gt;&gt;&gt; 12 
+#   00001100
+# &amp; 00001101
+# = 00001100
+# therefor 12
 </code></pre>
-<pre><code class="language-python"># slice
-[1,2,3][1:] # [2,3]
-</code></pre>
-<pre><code class="language-python"># map
-m = {}
-m1 = { 1 : 'Yi'}
-m[1] = 'one'
-
-if lang == 'english':
-    print(m[1])
-else:
-    print(m1[1])
-</code></pre>
-<pre><code class="language-python"># List Comprehension
-fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;, &quot;kiwi&quot;, &quot;mango&quot;]
-newlist = [x for x in fruits if &quot;a&quot; in x]
-# &gt;&gt;&gt; ['apple', 'banana', 'mango']
-</code></pre>
-<pre><code class="language-python"># setting up new array with length n ouside of loops 
-nums = [0]*length
-# inside the loop no &quot;append&quot; or self needed
-# see eg in squares-of-a-sorted-array
-</code></pre>
-<pre><code class="language-python"># sort()
-# returns the ordered array from min to max
-prime_numbers = [11, 3, 7, 5, 2]
-
-# sort the list
-prime_numbers.sort()
-print(prime_numbers)
-
-# &gt;&gt;&gt; [2, 3, 5, 7, 11]
+<h3 id="operator-bitwise-or">| operator (bitwise 'or')</h3>
+<pre><code class="language-python">12|13 
+# &gt;&gt;&gt; 12 
+#   00001100
+# | 00001101
+# = 00001101
+# therefor 13
 </code></pre>
               
             </div>
@@ -362,10 +288,10 @@ print(prime_numbers)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../python-operators/" class="btn btn-neutral float-right" title="Python operators">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../bfs/01-matrix/" class="btn btn-neutral float-right" title="01 matrix">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../frontend/react-basics/" class="btn btn-neutral" title="React basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../data-structure/" class="btn btn-neutral" title="Data structure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -391,10 +317,10 @@ print(prime_numbers)
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../frontend/react-basics/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../data-structure/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../python-operators/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../bfs/01-matrix/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
