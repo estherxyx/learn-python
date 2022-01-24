@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Is unique lcci - Learn Python</title>
+  <title>Reverse bits lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Is unique lcci";
-    var mkdocs_page_input_path = "leetcode/string/is-unique-lcci.md";
+    var mkdocs_page_name = "Reverse bits lcci";
+    var mkdocs_page_input_path = "leetcode/bit-operation/reverse-bits-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -87,13 +87,13 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Bit operation</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/power-of-two/">Power of two</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Bit operation</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../power-of-two/">Power of two</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/reverse-bits-lcci/">Reverse bits lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Reverse bits lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/single-number/">Single number</a>
+                <li class="toctree-l2"><a class="reference internal" href="../single-number/">Single number</a>
                 </li>
     </ul>
                     </li>
@@ -151,15 +151,15 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">String</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../check-permutation-lcci/">Check permutation lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">String</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/check-permutation-lcci/">Check permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../compress-string-lcci/">Compress string lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/compress-string-lcci/">Compress string lcci</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Is unique lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/is-unique-lcci/">Is unique lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../string-to-url-lcci/">String to url lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/string-to-url-lcci/">String to url lcci</a>
                 </li>
     </ul>
                     </li>
@@ -232,11 +232,11 @@
         
       
         
-          <li>String &raquo;</li>
+          <li>Bit operation &raquo;</li>
         
       
     
-    <li>Is unique lcci</li>
+    <li>Reverse bits lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -248,31 +248,25 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode-cn.com/problems/is-unique-lcci/">leetcode.cc</a></p>
+                <p><a href="https://leetcode-cn.com/problems/reverse-bits-lcci/submissions/">leetcode.cc</a></p>
 <pre><code class="language-python">class Solution:
-    def isUnique(self, astr: str) -&gt; bool:
+    def reverseBits(self, num: int) -&gt; int:
+        cur = 0 
+        pivot = 0 
+        ret = 1
 
-        # solution #1 
-        astr = sorted(astr)
-        for i in range (1,len(astr)):
-            if astr[i]==astr[i-1]:
-                return False
-        return True
+        # for c in bin(num):  
+        #     if num and c==&quot;1&quot;: 
+        for i in range(32):
+            if num &amp;(1&lt;&lt;i):
+                cur += 1 
+                pivot += 1
+            else: 
+                pivot = cur +1 
+                cur = 0 
+            ret = max(pivot, ret)
 
-        # # solution # 2
-        # return len(set(astr))==len(astr) 
-
-        ## solution #3 
-        dic = [0]*26
-
-        for i in range(len(astr)):
-            dic[ord(astr[i])-ord(&quot;a&quot;)] += 1
-
-        for i in range(len(dic)):
-            if dic[i] &gt;1: 
-                return False
-        return True 
-
+        return ret
 </code></pre>
               
             </div>
@@ -281,10 +275,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../string-to-url-lcci/" class="btn btn-neutral float-right" title="String to url lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../single-number/" class="btn btn-neutral float-right" title="Single number">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../compress-string-lcci/" class="btn btn-neutral" title="Compress string lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../power-of-two/" class="btn btn-neutral" title="Power of two"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -310,10 +304,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../compress-string-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../power-of-two/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../string-to-url-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../single-number/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
