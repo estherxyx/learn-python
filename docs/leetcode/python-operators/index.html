@@ -75,6 +75,12 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#operator-bitwise-or">| operator (bitwise 'or')</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operator-bitwise-xor">^ operator (bitwise 'xor')</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operator-leftshift-for-how-many-bits">&lt;&lt; operator (leftshift for how many bits)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operator-rightshift-for-how-many-bits">&gt;&gt; operator (rightshift for how many bits)</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Bfs</a>
@@ -99,6 +105,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Bit operation</a>
     <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../bit-operation/convert-integer-lcci/">Convert integer lcci</a>
+                </li>
                 <li class="toctree-l2"><a class="reference internal" href="../bit-operation/insert-into-bits-lcci/">Insert into bits lcci</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../bit-operation/power-of-two/">Power of two</a>
@@ -275,11 +283,33 @@
 </code></pre>
 <h3 id="operator-bitwise-or">| operator (bitwise 'or')</h3>
 <pre><code class="language-python">12|13 
-# &gt;&gt;&gt; 12 
+# &gt;&gt;&gt; 13 
 #   00001100
 # | 00001101
 # = 00001101
 # therefor 13
+</code></pre>
+<h3 id="operator-bitwise-xor">^ operator (bitwise 'xor')</h3>
+<pre><code class="language-python">12^13 
+# &gt;&gt;&gt; 1
+#   00001100
+# ^ 00001101
+# = 00000001
+# therefor 1
+</code></pre>
+<h3 id="operator-leftshift-for-how-many-bits">&lt;&lt; operator (leftshift for how many bits)</h3>
+<pre><code class="language-python">10&lt;&lt;2 
+# &gt;&gt;&gt; 40 
+# bin(10) :  00001010
+# &lt;&lt;2 :    0000101000 (two more zeros on the right side)
+# therefore 40 in decimal 
+</code></pre>
+<h3 id="operator-rightshift-for-how-many-bits">&gt;&gt; operator (rightshift for how many bits)</h3>
+<pre><code class="language-python">10&gt;&gt;2 
+# &gt;&gt;&gt; 2
+# bin(10) :  00001010
+# &lt;&lt;2 :        000010
+# therefore 2 in decimal 
 </code></pre>
               
             </div>
