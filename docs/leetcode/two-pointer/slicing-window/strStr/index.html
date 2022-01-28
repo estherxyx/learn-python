@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../../img/favicon.ico">
-  <title>Binary search - Learn Python</title>
+  <title>strStr - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Binary search";
-    var mkdocs_page_input_path = "leetcode/two-pointer/binary-search/binary-search.md";
+    var mkdocs_page_name = "strStr";
+    var mkdocs_page_input_path = "leetcode/two-pointer/slicing-window/strStr.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -187,23 +187,23 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../squares-of-a-sorted-array/">Squares of a sorted array</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Binary search</a>
-    <ul class="current">
-                <li class="toctree-l3 current"><a class="reference internal current" href="./">Binary search</a>
+                <li class="toctree-l2"><a class="reference internal" href="#">Binary search</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/binary-search/">Binary search</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../first-bad-version/">First bad version</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/first-bad-version/">First bad version</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../search-insert-position/">Search insert position</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/search-insert-position/">Search insert position</a>
                 </li>
     </ul>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">Slicing window</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../../slicing-window/longest-substring-without-repeating-characters/">Longest substring without repeating characters</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Slicing window</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../longest-substring-without-repeating-characters/">Longest substring without repeating characters</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../slicing-window/permutation-in-string/">Permutation in string</a>
+                <li class="toctree-l3"><a class="reference internal" href="../permutation-in-string/">Permutation in string</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../slicing-window/strStr/">strStr</a>
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">strStr</a>
                 </li>
     </ul>
                 </li>
@@ -246,11 +246,11 @@
         
       
         
-          <li>Binary search &raquo;</li>
+          <li>Slicing window &raquo;</li>
         
       
     
-    <li>Binary search</li>
+    <li>strStr</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -262,33 +262,25 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/binary-search/
-
-class Solution:
-    def search(self, nums: List[int], target: int) -&gt; int:
-        # eg
-        # nums = [-1,0,3,5,9,12], n = 5
-        # pivot = 2, val = 3 -&gt; [3...4...5]
-        # pivot = 4, val = 9
-
+                <p>(leetcode.top-interview-questions-easy)[https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnr003/]</p>
+<pre><code class="language-python">class Solution:
+    def strStr(self, haystack: str, needle: str) -&gt; int:
+        # # &quot;hello&quot;
+        # #  i j
+        # #   &quot;ll&quot;
+        n = len(haystack)
+        m = len(needle)
         i = 0
-        j = len(nums) -1
-        while j - i &gt; 1:
-            pivot = (j - i) // 2 + i
-            val = nums[pivot]
-            if val &gt; target:
-                j = pivot - 1
-            elif val &lt; target:
-                i = pivot + 1
-            else:
-                return pivot
+        j = 0
+        dic = {}
+        if m&gt;n: return -1 
 
-        if nums[i] == target:
-            return i
-        elif nums[j] == target:
-            return j
-        else:
-            return -1
+        while i+m &lt;= n:
+            if haystack[i:i+m] == needle:
+                return i 
+            i += 1 
+        return -1
+
 </code></pre>
               
             </div>
@@ -297,10 +289,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../first-bad-version/" class="btn btn-neutral float-right" title="First bad version">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../../../mkdocs/config/" class="btn btn-neutral float-right" title="Config">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../squares-of-a-sorted-array/" class="btn btn-neutral" title="Squares of a sorted array"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../permutation-in-string/" class="btn btn-neutral" title="Permutation in string"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -326,10 +318,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../squares-of-a-sorted-array/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../permutation-in-string/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../first-bad-version/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../../../mkdocs/config/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
