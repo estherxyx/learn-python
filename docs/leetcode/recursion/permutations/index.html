@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Triangle - Learn Python</title>
+  <title>Permutations - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Triangle";
-    var mkdocs_page_input_path = "leetcode/regression/triangle.md";
+    var mkdocs_page_name = "Permutations";
+    var mkdocs_page_input_path = "leetcode/recursion/permutations.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -145,17 +145,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Regression</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Recursion</a>
     <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="../combinations/">Combinations</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../merge-two-sorted-lists/">Merge two sorted lists</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../permutations/">Permutations</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Permutations</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../reverse-linked-list/">Definition for singly-linked list.</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Triangle</a>
+                <li class="toctree-l2"><a class="reference internal" href="../triangle/">Triangle</a>
                 </li>
     </ul>
                     </li>
@@ -244,11 +244,11 @@
         
       
         
-          <li>Regression &raquo;</li>
+          <li>Recursion &raquo;</li>
         
       
     
-    <li>Triangle</li>
+    <li>Permutations</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -260,20 +260,19 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode-cn.com/problems/triangle/">leetcode.cn</a></p>
+                <p><a href="https://leetcode-cn.com/problems/permutations/">leetcode.cn</a></p>
 <pre><code class="language-python">class Solution:
-    def minimumTotal(self, triangle: List[List[int]]) -&gt; int:
-        n = len(triangle)
-        ret = [[0]*n for _ in range(n)]
-        ret[0][0] = triangle[0][0]
+    def permute(self, nums: List[int]) -&gt; List[List[int]]:
+        res = []
+        def helper(nums,tmp):
+            if not nums:
+                res.append(tmp)
+                return 
+            for i in range(len(nums)):
+                helper(nums[:i] + nums[i+1:],tmp+[nums[i]])
 
-        for i in range(1,n):
-            ret[i][0] = triangle[i][0] + ret[i-1][0]
-            for j in range(1,i):
-                ret[i][j] =triangle[i][j] + min(ret[i-1][j-1], ret[i-1][j]) 
-            ret[i][i] = triangle[i][i] + ret[i-1][i-1]
-
-        return min(ret[n-1])
+        helper(nums,[])
+        return res
 </code></pre>
               
             </div>
@@ -282,10 +281,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../string/check-permutation-lcci/" class="btn btn-neutral float-right" title="Check permutation lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../reverse-linked-list/" class="btn btn-neutral float-right" title="Definition for singly-linked list.">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../reverse-linked-list/" class="btn btn-neutral" title="Definition for singly-linked list."><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../merge-two-sorted-lists/" class="btn btn-neutral" title="Merge two sorted lists"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -311,10 +310,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../reverse-linked-list/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../merge-two-sorted-lists/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../string/check-permutation-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../reverse-linked-list/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

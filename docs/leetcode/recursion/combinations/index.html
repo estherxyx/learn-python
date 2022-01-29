@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Merge two sorted lists - Learn Python</title>
+  <title>Combinations - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Merge two sorted lists";
-    var mkdocs_page_input_path = "leetcode/regression/merge-two-sorted-lists.md";
+    var mkdocs_page_name = "Combinations";
+    var mkdocs_page_input_path = "leetcode/recursion/combinations.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -145,11 +145,11 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Regression</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Recursion</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../combinations/">Combinations</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Combinations</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Merge two sorted lists</a>
+                <li class="toctree-l2"><a class="reference internal" href="../merge-two-sorted-lists/">Merge two sorted lists</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../permutations/">Permutations</a>
                 </li>
@@ -244,11 +244,11 @@
         
       
         
-          <li>Regression &raquo;</li>
+          <li>Recursion &raquo;</li>
         
       
     
-    <li>Merge two sorted lists</li>
+    <li>Combinations</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -260,24 +260,23 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/">leetcode.cn</a></p>
-<pre><code class="language-python"># Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -&gt; Optional[ListNode]:
+                <p><a href="https://leetcode-cn.com/problems/combinations/">leetcode.cn</a></p>
+<pre><code class="language-python">class Solution:
+    def combine(self, n: int, k: int) -&gt; List[List[int]]:
+        res = []
 
-        if not list1: return list2
-        if not list2: return list1
+        def helper(start,route):
+            if len(route) == k:
+                res.append(route[:])
+                return res
 
-        if list1.val &lt;= list2.val: 
-            list1.next = self.mergeTwoLists(list1.next,list2)
-            return list1 
-        else: 
-            list2.next = self.mergeTwoLists(list1,list2.next)
-            return list2
+            for i in range(start, n+1):
+                route.append(i)
+                helper(i+1, route)
+                route.pop()
+        helper(1, [])
+        return res
+
 
 </code></pre>
               
@@ -287,10 +286,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../permutations/" class="btn btn-neutral float-right" title="Permutations">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../merge-two-sorted-lists/" class="btn btn-neutral float-right" title="Merge two sorted lists">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../combinations/" class="btn btn-neutral" title="Combinations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../list-map/two-sum/" class="btn btn-neutral" title="Two sum"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -316,10 +315,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../combinations/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../list-map/two-sum/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../permutations/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../merge-two-sorted-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
