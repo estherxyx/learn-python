@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Merge two binary trees - Learn Python</title>
+  <title>Longest common prefix - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Merge two binary trees";
-    var mkdocs_page_input_path = "leetcode/binary-tree/merge-two-binary-trees.md";
+    var mkdocs_page_name = "Longest common prefix";
+    var mkdocs_page_input_path = "leetcode/string/longest-common-prefix.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -79,15 +79,15 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary tree</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-level-order-traversal/">Binary tree level order traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Merge two binary trees</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
                 </li>
     </ul>
                     </li>
@@ -159,19 +159,19 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">String</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/check-permutation-lcci/">Check permutation lcci</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">String</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../check-permutation-lcci/">Check permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/compress-string-lcci/">Compress string lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../compress-string-lcci/">Compress string lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/is-unique-lcci/">Is unique lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../is-unique-lcci/">Is unique lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/isPalindrome/">isPalindrome</a>
+                <li class="toctree-l2"><a class="reference internal" href="../isPalindrome/">isPalindrome</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/longest-common-prefix/">Longest common prefix</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Longest common prefix</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/string-to-url-lcci/">String to url lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../string-to-url-lcci/">String to url lcci</a>
                 </li>
     </ul>
                     </li>
@@ -246,11 +246,11 @@
         
       
         
-          <li>Binary tree &raquo;</li>
+          <li>String &raquo;</li>
         
       
     
-    <li>Merge two binary trees</li>
+    <li>Longest common prefix</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -262,29 +262,16 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def mergeTrees(self, root1: TreeNode, root2: TreeNode) -&gt; TreeNode:
-
-        def dfs(root1,root2):
-            root = TreeNode()
-            if not root1: 
-                return root2
-            elif not root2: 
-                return root1
-            else:
-                root.val = root1.val + root2.val
-                root.left = dfs(root1.left, root2.left)
-                root.right = dfs(root1.right, root2.right)
-            return root
-
-        return dfs(root1,root2)
-
+                <p>(leetcode.top-interview-questions-easy)[https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnmav1/]</p>
+<pre><code class="language-python">class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -&gt; str:
+        if not strs: return &quot;&quot;
+        for i in range(len(strs[0])):
+            char = strs[0][i]
+            for j in range(1,len(strs)):
+                if i == len(strs[j]) or strs[j][i] != char:
+                    return strs[0][:i]
+        return strs[0]
 </code></pre>
               
             </div>
@@ -293,10 +280,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../populating-next-right-pointers-in-each-node/" class="btn btn-neutral float-right" title="Populating next right pointers in each node">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../string-to-url-lcci/" class="btn btn-neutral float-right" title="String to url lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../binary-tree-level-order-traversal/" class="btn btn-neutral" title="Binary tree level order traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../isPalindrome/" class="btn btn-neutral" title="isPalindrome"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -322,10 +309,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../binary-tree-level-order-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../isPalindrome/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../populating-next-right-pointers-in-each-node/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../string-to-url-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
