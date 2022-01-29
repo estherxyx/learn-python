@@ -2,21 +2,19 @@
 ```python
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        s_list = s.lower()
-        valid_list = []
-
-        for c in s_list:
-            if "a"<= c <="z":
-                valid_list.append(c)
+        s_lower = ""
+        for c in s:
+            if "a"<=c<="z" or "A"<=c<= "Z" or "0" <= c <="9":
+                s_lower += c.lower()
 
         i = 0
-        j = len(valid_list) -1 
+        j = len(s_lower) -1 
         while i <j: 
-            if valid_list[i] == valid_list[j]:
+            if s_lower[i] == s_lower[j]:
                 i += 1 
                 j -=1 
             else: 
                 return False
-        return True 
+        return True
 
 ```
