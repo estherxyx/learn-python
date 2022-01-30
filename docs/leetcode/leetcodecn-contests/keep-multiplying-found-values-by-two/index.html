@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Convert integer lcci - Learn Python</title>
+  <title>Keep multiplying found values by two - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Convert integer lcci";
-    var mkdocs_page_input_path = "leetcode/bit-operation/convert-integer-lcci.md";
+    var mkdocs_page_name = "Keep multiplying found values by two";
+    var mkdocs_page_input_path = "leetcode/leetcodecn-contests/keep-multiplying-found-values-by-two.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -91,17 +91,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Bit operation</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Convert integer lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Bit operation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/convert-integer-lcci/">Convert integer lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../insert-into-bits-lcci/">Insert into bits lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/insert-into-bits-lcci/">Insert into bits lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../power-of-two/">Power of two</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/power-of-two/">Power of two</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../reverse-bits-lcci/">Reverse bits lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/reverse-bits-lcci/">Reverse bits lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../single-number/">Single number</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/single-number/">Single number</a>
                 </li>
     </ul>
                     </li>
@@ -125,9 +125,9 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Leetcodecn contests</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../leetcodecn-contests/keep-multiplying-found-values-by-two/">Keep multiplying found values by two</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Leetcodecn contests</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Keep multiplying found values by two</a>
                 </li>
     </ul>
                     </li>
@@ -252,11 +252,11 @@
         
       
         
-          <li>Bit operation &raquo;</li>
+          <li>Leetcodecn contests &raquo;</li>
         
       
     
-    <li>Convert integer lcci</li>
+    <li>Keep multiplying found values by two</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -268,16 +268,11 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/convert-integer-lcci/submissions/]</p>
-<pre><code class="language-python">class Solution:
-    def convertInteger(self, A: int, B: int) -&gt; int:
-
-        c = A ^ B
-        ret = 0
-        # to find how many &quot;1&quot; in c 
-        for i in range(32): 
-            ret += c&gt;&gt;i&amp;1 #rightshift and find 1
-        return ret 
+                <p>(leetcode.contest)[https://leetcode-cn.com/contest/weekly-contest-278/problems/keep-multiplying-found-values-by-two/]</p>
+<pre><code class="language-python">for i in range(len(nums)):
+            while original in nums: 
+                original = original*2
+        return original 
 </code></pre>
               
             </div>
@@ -286,10 +281,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../insert-into-bits-lcci/" class="btn btn-neutral float-right" title="Insert into bits lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../linked-list/middle-of-the-linked-list/" class="btn btn-neutral float-right" title="Middle of the linked list">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../binary-tree/populating-next-right-pointers-in-each-node/" class="btn btn-neutral" title="Populating next right pointers in each node"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../dynamic-programming/house-robber/" class="btn btn-neutral" title="House robber"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -315,10 +310,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../binary-tree/populating-next-right-pointers-in-each-node/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../dynamic-programming/house-robber/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../insert-into-bits-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../linked-list/middle-of-the-linked-list/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
