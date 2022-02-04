@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Power of two - Learn Python</title>
+  <title>Palindrome permutation lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Power of two";
-    var mkdocs_page_input_path = "leetcode/bit-operation/power-of-two.md";
+    var mkdocs_page_name = "Palindrome permutation lcci";
+    var mkdocs_page_input_path = "leetcode/string/palindrome-permutation-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -93,17 +93,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Bit operation</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../convert-integer-lcci/">Convert integer lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Bit operation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/convert-integer-lcci/">Convert integer lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../insert-into-bits-lcci/">Insert into bits lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/insert-into-bits-lcci/">Insert into bits lcci</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Power of two</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/power-of-two/">Power of two</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../reverse-bits-lcci/">Reverse bits lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/reverse-bits-lcci/">Reverse bits lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../single-number/">Single number</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/single-number/">Single number</a>
                 </li>
     </ul>
                     </li>
@@ -185,21 +185,21 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">String</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/check-permutation-lcci/">Check permutation lcci</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">String</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../check-permutation-lcci/">Check permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/compress-string-lcci/">Compress string lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../compress-string-lcci/">Compress string lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/is-unique-lcci/">Is unique lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../is-unique-lcci/">Is unique lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/isPalindrome/">isPalindrome</a>
+                <li class="toctree-l2"><a class="reference internal" href="../isPalindrome/">isPalindrome</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/longest-common-prefix/">Longest common prefix</a>
+                <li class="toctree-l2"><a class="reference internal" href="../longest-common-prefix/">Longest common prefix</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/palindrome-permutation-lcci/">Palindrome permutation lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Palindrome permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/string-to-url-lcci/">String to url lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../string-to-url-lcci/">String to url lcci</a>
                 </li>
     </ul>
                     </li>
@@ -274,11 +274,11 @@
         
       
         
-          <li>Bit operation &raquo;</li>
+          <li>String &raquo;</li>
         
       
     
-    <li>Power of two</li>
+    <li>Palindrome permutation lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -290,28 +290,12 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode-cn.com/problems/power-of-two/">leetcode.cn</a></p>
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/palindrome-permutation-lcci/]</p>
 <pre><code class="language-python">class Solution:
-    def isPowerOfTwo(self, n: int) -&gt; bool:
-        # First try: failed lol 
-        # bin_n = list(bin(n)[2:]) # this is wrong, we need a string in for loop!! 
-        # print(bin_n)
-        # for c in bin_n: # the bin_n has to be a string in this case 
-        #     count = 0
-        #     if c == &quot;1&quot;: 
-        #         count += 1
-        # return n&gt;0 and count ==1
+    def canPermutePalindrome(self, s: str) -&gt; bool:
 
-        # second try: worked 
-        # return n&gt;0 and bin(n).count(&quot;1&quot;)==1
-
-        # final round: 
-        ## if we do &quot;for c in bin(n)&quot;, the &quot;bin(n)&quot; has to be a string not a list!! 
-        ret = 0
-        for c in bin(n):
-            if c == &quot;1&quot;:
-                ret += 1
-        return n&gt;0 and ret==1
+        count = [i for i in Counter(s).values() if i%2 == 1]
+        return len(count) &lt; 2
 
 </code></pre>
               
@@ -321,10 +305,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../reverse-bits-lcci/" class="btn btn-neutral float-right" title="Reverse bits lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../string-to-url-lcci/" class="btn btn-neutral float-right" title="String to url lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../insert-into-bits-lcci/" class="btn btn-neutral" title="Insert into bits lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../longest-common-prefix/" class="btn btn-neutral" title="Longest common prefix"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -350,10 +334,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../insert-into-bits-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../longest-common-prefix/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../reverse-bits-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../string-to-url-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
