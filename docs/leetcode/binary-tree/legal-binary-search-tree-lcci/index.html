@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Keep multiplying found values by two - Learn Python</title>
+  <title>Legal binary search tree lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Keep multiplying found values by two";
-    var mkdocs_page_input_path = "leetcode/leetcodecn-contests/keep-multiplying-found-values-by-two.md";
+    var mkdocs_page_name = "Legal binary search tree lcci";
+    var mkdocs_page_input_path = "leetcode/binary-tree/legal-binary-search-tree-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -81,17 +81,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary tree</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/legal-binary-search-tree-lcci/">Legal binary search tree lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Legal binary search tree lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
+                <li class="toctree-l2"><a class="reference internal" href="../merge-two-binary-trees/">Merge two binary trees</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
+                <li class="toctree-l2"><a class="reference internal" href="../populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
                 </li>
     </ul>
                     </li>
@@ -137,15 +137,15 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Leetcodecn contests</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Keep multiplying found values by two</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Leetcodecn contests</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../leetcodecn-contests/keep-multiplying-found-values-by-two/">Keep multiplying found values by two</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="#">Https:</a>
     <ul>
                 <li class="toctree-l3"><a class="reference internal" href="#">Leetcode cn.com</a>
     <ul>
-                <li class="toctree-l4"><a class="reference internal" href="../https%3A/leetcode-cn.com/coall-divisions-with-the-highest-score-of-a-binary-array/">Coall divisions with the highest score of a binary array</a>
+                <li class="toctree-l4"><a class="reference internal" href="../../leetcodecn-contests/https%3A/leetcode-cn.com/coall-divisions-with-the-highest-score-of-a-binary-array/">Coall divisions with the highest score of a binary array</a>
                 </li>
     </ul>
                 </li>
@@ -276,11 +276,11 @@
         
       
         
-          <li>Leetcodecn contests &raquo;</li>
+          <li>Binary tree &raquo;</li>
         
       
     
-    <li>Keep multiplying found values by two</li>
+    <li>Legal binary search tree lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -292,11 +292,26 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.contest)[https://leetcode-cn.com/contest/weekly-contest-278/problems/keep-multiplying-found-values-by-two/]</p>
-<pre><code class="language-python">for i in range(len(nums)):
-            while original in nums: 
-                original = original*2
-        return original 
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/legal-binary-search-tree-lcci/submissions/]</p>
+<pre><code class="language-python"># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isValidBST(self, root: TreeNode) -&gt; bool:
+        ret = []
+        def inorderTraversal(root): 
+            if root:
+                inorderTraversal(root.left)
+                ret.append(root.val)
+                inorderTraversal(root.right)
+            # return ret
+        inorderTraversal(root)
+        return ret == sorted(set(ret))
+
 </code></pre>
               
             </div>
@@ -305,10 +320,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../https%3A/leetcode-cn.com/coall-divisions-with-the-highest-score-of-a-binary-array/" class="btn btn-neutral float-right" title="Coall divisions with the highest score of a binary array">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../merge-two-binary-trees/" class="btn btn-neutral float-right" title="Merge two binary trees">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../dynamic-programming/house-robber/" class="btn btn-neutral" title="House robber"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../binary-tree-level-order-traversal/" class="btn btn-neutral" title="Binary tree level order traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -334,10 +349,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../dynamic-programming/house-robber/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../binary-tree-level-order-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../https%3A/leetcode-cn.com/coall-divisions-with-the-highest-score-of-a-binary-array/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../merge-two-binary-trees/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
