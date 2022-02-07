@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Longest common prefix - Learn Python</title>
+  <title>Three in one lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Longest common prefix";
-    var mkdocs_page_input_path = "leetcode/string/longest-common-prefix.md";
+    var mkdocs_page_name = "Three in one lcci";
+    var mkdocs_page_input_path = "leetcode/class/three-in-one-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -109,13 +109,15 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Class</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/implement-queue-using-stacks-lcci/">Implement queue using stacks lcci</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Class</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../implement-queue-using-stacks-lcci/">Implement queue using stacks lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/min-stack-lcci/">Min stack lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../min-stack-lcci/">Min stack lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/three-in-one-lcci/">Three in one lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Three in one lcci</a>
+    <ul class="current">
+    </ul>
                 </li>
     </ul>
                     </li>
@@ -189,21 +191,21 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">String</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../check-permutation-lcci/">Check permutation lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">String</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/check-permutation-lcci/">Check permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../compress-string-lcci/">Compress string lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/compress-string-lcci/">Compress string lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../is-unique-lcci/">Is unique lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/is-unique-lcci/">Is unique lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../isPalindrome/">isPalindrome</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/isPalindrome/">isPalindrome</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Longest common prefix</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/longest-common-prefix/">Longest common prefix</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../palindrome-permutation-lcci/">Palindrome permutation lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/palindrome-permutation-lcci/">Palindrome permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../string-to-url-lcci/">String to url lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/string-to-url-lcci/">String to url lcci</a>
                 </li>
     </ul>
                     </li>
@@ -278,11 +280,11 @@
         
       
         
-          <li>String &raquo;</li>
+          <li>Class &raquo;</li>
         
       
     
-    <li>Longest common prefix</li>
+    <li>Three in one lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -294,17 +296,41 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.top-interview-questions-easy)[https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnmav1/]</p>
-<pre><code class="language-python">class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -&gt; str:
-        if not strs: return &quot;&quot;
-        for i in range(len(strs[0])):
-            char = strs[0][i]
-            for j in range(1,len(strs)):
-                if i == len(strs[j]) or strs[j][i] != char:
-                    return strs[0][:i]
-        return strs[0]
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/three-in-one-lcci/submissions/]
+```python</p>
+<p>```class TripleInOne:</p>
+<pre><code>def __init__(self, stackSize: int):
+    self.tripleStack = [[]for i in range(3)]
+    self.stackSize = stackSize
+
+def push(self, stackNum: int, value: int) -&gt; None:
+    if len(self.tripleStack[stackNum]) &lt; self.stackSize:
+        self.tripleStack[stackNum].append(value)
+
+def pop(self, stackNum: int) -&gt; int:
+    if self.tripleStack[stackNum] != []:
+        popedValue = self.tripleStack[stackNum][-1]
+        self.tripleStack[stackNum] = self.tripleStack[stackNum][:-1]
+        return popedValue
+    else: 
+        return -1
+
+def peek(self, stackNum: int) -&gt; int:
+    if self.tripleStack[stackNum] != []:
+        popedValue = self.tripleStack[stackNum][-1]
+        return popedValue
+    else: 
+        return -1
+
+def isEmpty(self, stackNum: int) -&gt; bool:
+    return self.tripleStack[stackNum] == []
 </code></pre>
+<h1 id="your-tripleinone-object-will-be-instantiated-and-called-as-such">Your TripleInOne object will be instantiated and called as such:</h1>
+<h1 id="obj-tripleinonestacksize">obj = TripleInOne(stackSize)</h1>
+<h1 id="objpushstacknumvalue">obj.push(stackNum,value)</h1>
+<h1 id="param_2-objpopstacknum">param_2 = obj.pop(stackNum)</h1>
+<h1 id="param_3-objpeekstacknum">param_3 = obj.peek(stackNum)</h1>
+<h1 id="param_4-objisemptystacknum">param_4 = obj.isEmpty(stackNum)</h1>
               
             </div>
           </div>
@@ -312,10 +338,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../palindrome-permutation-lcci/" class="btn btn-neutral float-right" title="Palindrome permutation lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../dfs/flood-fill-myths/" class="btn btn-neutral float-right" title="Flood fill myths">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../isPalindrome/" class="btn btn-neutral" title="isPalindrome"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../min-stack-lcci/" class="btn btn-neutral" title="Min stack lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -341,10 +367,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../isPalindrome/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../min-stack-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../palindrome-permutation-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../dfs/flood-fill-myths/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
