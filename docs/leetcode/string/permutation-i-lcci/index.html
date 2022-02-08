@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>isPalindrome - Learn Python</title>
+  <title>Permutation i lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "isPalindrome";
-    var mkdocs_page_input_path = "leetcode/string/isPalindrome.md";
+    var mkdocs_page_name = "Permutation i lcci";
+    var mkdocs_page_input_path = "leetcode/string/permutation-i-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -203,13 +203,13 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../is-unique-lcci/">Is unique lcci</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">isPalindrome</a>
+                <li class="toctree-l2"><a class="reference internal" href="../isPalindrome/">isPalindrome</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../longest-common-prefix/">Longest common prefix</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../palindrome-permutation-lcci/">Palindrome permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../permutation-i-lcci/">Permutation i lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Permutation i lcci</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../sparse-array-search-lcci/">Sparse array search lcci</a>
                 </li>
@@ -292,7 +292,7 @@
         
       
     
-    <li>isPalindrome</li>
+    <li>Permutation i lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -304,23 +304,20 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.top-interview-questions-easy)[https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xne8id/]</p>
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/permutation-i-lcci/comments/]</p>
 <pre><code class="language-python">class Solution:
-    def isPalindrome(self, s: str) -&gt; bool:
-        s_lower = &quot;&quot;
-        for c in s:
-            if &quot;a&quot;&lt;=c&lt;=&quot;z&quot; or &quot;A&quot;&lt;=c&lt;= &quot;Z&quot; or &quot;0&quot; &lt;= c &lt;=&quot;9&quot;:
-                s_lower += c.lower()
-
-        i = 0
-        j = len(s_lower) -1 
-        while i &lt;j: 
-            if s_lower[i] == s_lower[j]:
-                i += 1 
-                j -=1 
-            else: 
-                return False
-        return True
+    def permutation(self, S: str) -&gt; List[str]:
+        res = []
+        pivot = &quot;&quot;
+        def helper(S,pivot,res)-&gt;List[str]:
+            if S == &quot;&quot;: 
+                res.append(pivot)
+                return 
+            for i in range(len(S)):
+                cur = S[i]
+                helper(S[:i]+S[i+1:],pivot+cur,res)
+        helper(S,pivot,res)
+        return res
 
 </code></pre>
               
@@ -330,10 +327,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../longest-common-prefix/" class="btn btn-neutral float-right" title="Longest common prefix">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../sparse-array-search-lcci/" class="btn btn-neutral float-right" title="Sparse array search lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../is-unique-lcci/" class="btn btn-neutral" title="Is unique lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../palindrome-permutation-lcci/" class="btn btn-neutral" title="Palindrome permutation lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -359,10 +356,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../is-unique-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../palindrome-permutation-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../longest-common-prefix/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../sparse-array-search-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
