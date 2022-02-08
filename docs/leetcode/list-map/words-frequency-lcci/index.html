@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Implement queue using stacks lcci - Learn Python</title>
+  <title>Words frequency lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Implement queue using stacks lcci";
-    var mkdocs_page_input_path = "leetcode/class/implement-queue-using-stacks-lcci.md";
+    var mkdocs_page_name = "Words frequency lcci";
+    var mkdocs_page_input_path = "leetcode/list-map/words-frequency-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -115,13 +115,13 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Class</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Implement queue using stacks lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Class</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../class/implement-queue-using-stacks-lcci/">Implement queue using stacks lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../min-stack-lcci/">Min stack lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../class/min-stack-lcci/">Min stack lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../three-in-one-lcci/">Three in one lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../class/three-in-one-lcci/">Three in one lcci</a>
                 </li>
     </ul>
                     </li>
@@ -173,13 +173,13 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum/">Two sum</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/words-frequency-lcci/">Words frequency lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Words frequency lcci</a>
                 </li>
     </ul>
                     </li>
@@ -296,11 +296,11 @@
         
       
         
-          <li>Class &raquo;</li>
+          <li>List map &raquo;</li>
         
       
     
-    <li>Implement queue using stacks lcci</li>
+    <li>Words frequency lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -312,47 +312,34 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/implement-queue-using-stacks-lcci/submissions/]</p>
-<pre><code class="language-python">class MyQueue: # FIFO
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/words-frequency-lcci/]</p>
+<pre><code class="language-python">class WordsFrequency:
+    #solution #1 dict {key,value}
+    def __init__(self, book: List[str]):
+        self.words = {}
+        for w in book: 
+            if w not in self.words.keys(): 
+                self.words[w] = 1
+            else: 
+                self.words[w] += 1
 
-    def __init__(self):
-        self.stack_in = []
-        self.stack_out = []
+    def get(self, word: str) -&gt; int:
+        if word not in self.words.keys(): 
+            return 0
+        else: 
+            return self.words[word]
 
-
-    def push(self, x: int) -&gt; None:
-        self.stack_in.append(x)
-
-
-    def pop(self) -&gt; int:
-
-        if len(self.stack_out)==0:
-            for i in range(len(self.stack_in)):
-                self.stack_out.append(self.stack_in.pop())
-        return self.stack_out.pop()
-
-
-    def peek(self) -&gt; int:
-
-        if len(self.stack_out)==0:
-            for i in range(len(self.stack_in)):
-                self.stack_out.append(self.stack_in.pop())
-        temp = self.stack_out.pop()
-        self.stack_out.append(temp)
-        return temp
-
-
-    def empty(self) -&gt; bool:
-        return len(self.stack_in)==0 and len(self.stack_out)==0
+    # # solution #2  timedout 
+    # def __init__(self, book: List[str]):
+    #     self.book = book
+    # def get(self, word: str) -&gt; int:
+    #     return self.book.count(word) # 这样不行 会爆掉
 
 
 
-# Your MyQueue object will be instantiated and called as such:
-# obj = MyQueue()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.peek()
-# param_4 = obj.empty()
+# Your WordsFrequency object will be instantiated and called as such:
+# obj = WordsFrequency(book)
+# param_1 = obj.get(word)
 </code></pre>
               
             </div>
@@ -361,10 +348,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../min-stack-lcci/" class="btn btn-neutral float-right" title="Min stack lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../recursion/combinations/" class="btn btn-neutral float-right" title="Combinations">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../bit-operation/single-number/" class="btn btn-neutral" title="Single number"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../two-sum/" class="btn btn-neutral" title="Two sum"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -390,10 +377,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../bit-operation/single-number/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../two-sum/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../min-stack-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../recursion/combinations/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
