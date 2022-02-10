@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>First common ancestor lcci - Learn Python</title>
+  <title>Three steps problem lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "First common ancestor lcci";
-    var mkdocs_page_input_path = "leetcode/binary-tree/first-common-ancestor-lcci.md";
+    var mkdocs_page_name = "Three steps problem lcci";
+    var mkdocs_page_input_path = "leetcode/dynamic-programming/three-steps-problem-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -81,23 +81,23 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary tree</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-level-order-traversal/">Binary tree level order traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">First common ancestor lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/first-common-ancestor-lcci/">First common ancestor lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../legal-binary-search-tree-lcci/">Legal binary search tree lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/legal-binary-search-tree-lcci/">Legal binary search tree lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../merge-two-binary-trees/">Merge two binary trees</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../minimum-height-tree-lcci/">Minimum height tree lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/minimum-height-tree-lcci/">Minimum height tree lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../successor-lcci/">Successor lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/successor-lcci/">Successor lcci</a>
                 </li>
     </ul>
                     </li>
@@ -137,13 +137,13 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Dynamic programming</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/climbing-stairs/">Climbing stairs</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dynamic programming</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../climbing-stairs/">Climbing stairs</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/house-robber/">House robber</a>
+                <li class="toctree-l2"><a class="reference internal" href="../house-robber/">House robber</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/three-steps-problem-lcci/">Three steps problem lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Three steps problem lcci</a>
                 </li>
     </ul>
                     </li>
@@ -304,11 +304,11 @@
         
       
         
-          <li>Binary tree &raquo;</li>
+          <li>Dynamic programming &raquo;</li>
         
       
     
-    <li>First common ancestor lcci</li>
+    <li>Three steps problem lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -320,23 +320,20 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/first-common-ancestor-lcci/solution/]</p>
-<pre><code class="language-python"># Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/three-steps-problem-lcci/submissions/]</p>
+<pre><code class="language-python">class Solution:
+    def waysToStep(self, n: int) -&gt; int:
+        if n&lt;=2: return n
+        mod = 1000000007
+        dp = [0]*(n+1)
+        dp[0] = 1
+        dp[1] = 1 
+        dp[2] = 2
 
-class Solution:
-    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -&gt; TreeNode:
-        if not root or root==p or root==q: return root 
-        #dfs
-        left = self.lowestCommonAncestor(root.left,p,q)
-        right = self.lowestCommonAncestor(root.right,p,q)
-        if left and right: 
-            return root 
-        return left if left else right 
+        for i in range(3,n+1):
+            dp[i] = (dp[i-1] + dp[i-2] + dp[i-3]) % mod
+        return dp[n]
+
 
 </code></pre>
               
@@ -346,10 +343,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../legal-binary-search-tree-lcci/" class="btn btn-neutral float-right" title="Legal binary search tree lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../leetcodecn-contests/keep-multiplying-found-values-by-two/" class="btn btn-neutral float-right" title="Keep multiplying found values by two">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../binary-tree-level-order-traversal/" class="btn btn-neutral" title="Binary tree level order traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../house-robber/" class="btn btn-neutral" title="House robber"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -375,10 +372,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../binary-tree-level-order-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../house-robber/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../legal-binary-search-tree-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../leetcodecn-contests/keep-multiplying-found-values-by-two/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
