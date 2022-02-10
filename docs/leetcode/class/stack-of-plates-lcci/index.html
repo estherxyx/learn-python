@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Binary tree level order traversal - Learn Python</title>
+  <title>Stack of plates lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Binary tree level order traversal";
-    var mkdocs_page_input_path = "leetcode/binary-tree/binary-tree-level-order-traversal.md";
+    var mkdocs_page_name = "Stack of plates lcci";
+    var mkdocs_page_input_path = "leetcode/class/stack-of-plates-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -81,23 +81,23 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Binary tree</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Binary tree level order traversal</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../first-common-ancestor-lcci/">First common ancestor lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/first-common-ancestor-lcci/">First common ancestor lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../legal-binary-search-tree-lcci/">Legal binary search tree lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/legal-binary-search-tree-lcci/">Legal binary search tree lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../merge-two-binary-trees/">Merge two binary trees</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../minimum-height-tree-lcci/">Minimum height tree lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/minimum-height-tree-lcci/">Minimum height tree lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../successor-lcci/">Successor lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/successor-lcci/">Successor lcci</a>
                 </li>
     </ul>
                     </li>
@@ -115,15 +115,15 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Class</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/implement-queue-using-stacks-lcci/">Implement queue using stacks lcci</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Class</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../implement-queue-using-stacks-lcci/">Implement queue using stacks lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/min-stack-lcci/">Min stack lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../min-stack-lcci/">Min stack lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/stack-of-plates-lcci/">Stack of plates lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Stack of plates lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/three-in-one-lcci/">Three in one lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../three-in-one-lcci/">Three in one lcci</a>
                 </li>
     </ul>
                     </li>
@@ -306,11 +306,11 @@
         
       
         
-          <li>Binary tree &raquo;</li>
+          <li>Class &raquo;</li>
         
       
     
-    <li>Binary tree level order traversal</li>
+    <li>Stack of plates lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -322,30 +322,39 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python"># https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/stack-of-plates-lcci/submissions/]</p>
+<pre><code class="language-python">class StackOfPlates:
 
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:
-        self.ret = []
-        def bfs(node):
-            queue = [node]
-            while queue:
-                self.ret.append([n.val for n in queue])
-                new_queue = []
-                for cur_node in queue:
-                    for tmp_node in [cur_node.left, cur_node.right]:
-                        if tmp_node:
-                                new_queue.append(tmp_node)
-                queue = new_queue
-        if root:
-            bfs(root)
-        return self.ret
+    def __init__(self, cap: int):
+        self.cap = cap 
+        self.arr = []
+
+    def push(self, val: int) -&gt; None:
+        if self.cap &lt;= 0: return 
+        elif not self.arr or len(self.arr[-1]) == self.cap:
+            self.arr.append([])
+            self.arr[-1].append(val)
+        else: self.arr[-1].append(val)
+
+    def pop(self) -&gt; int:
+        if not self.arr: return -1
+        p = self.arr[-1].pop()
+        if not self.arr[-1]:  
+            del self.arr[-1]
+        return p
+
+    def popAt(self, index: int) -&gt; int:
+        if len(self.arr) &lt; index + 1 : return -1 
+        q = self.arr[index].pop()
+        if not self.arr[index]: 
+            del self.arr[index]
+        return q
+
+# Your StackOfPlates object will be instantiated and called as such:
+# obj = StackOfPlates(cap)
+# obj.push(val)
+# param_2 = obj.pop()
+# param_3 = obj.popAt(index)
 </code></pre>
               
             </div>
@@ -354,10 +363,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../first-common-ancestor-lcci/" class="btn btn-neutral float-right" title="First common ancestor lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../three-in-one-lcci/" class="btn btn-neutral float-right" title="Three in one lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../binary-tree-inorder-traversal/" class="btn btn-neutral" title="Binary tree inorder traversal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../min-stack-lcci/" class="btn btn-neutral" title="Min stack lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -383,10 +392,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../binary-tree-inorder-traversal/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../min-stack-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../first-common-ancestor-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../three-in-one-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
