@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>01 matrix - Learn Python</title>
+  <title>Hanota lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "01 matrix";
-    var mkdocs_page_input_path = "leetcode/bfs/01-matrix.md";
+    var mkdocs_page_name = "Hanota lcci";
+    var mkdocs_page_input_path = "leetcode/recursion/hanota-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -69,15 +69,15 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../python-operators/">Python operators</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Bfs</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">01 matrix</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Bfs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../bfs/01-matrix/">01 matrix</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../color-fill-lcci/">Color fill lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bfs/color-fill-lcci/">Color fill lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../rotting-oranges/">Rotting oranges</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bfs/rotting-oranges/">Rotting oranges</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../route-between-nodes-lcci/">Route between nodes lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bfs/route-between-nodes-lcci/">Route between nodes lcci</a>
                 </li>
     </ul>
                     </li>
@@ -195,19 +195,19 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Recursion</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/combinations/">Combinations</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Recursion</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../combinations/">Combinations</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/hanota-lcci/">Hanota lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Hanota lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/merge-two-sorted-lists/">Merge two sorted lists</a>
+                <li class="toctree-l2"><a class="reference internal" href="../merge-two-sorted-lists/">Merge two sorted lists</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/permutations/">Permutations</a>
+                <li class="toctree-l2"><a class="reference internal" href="../permutations/">Permutations</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/reverse-linked-list/">Definition for singly-linked list.</a>
+                <li class="toctree-l2"><a class="reference internal" href="../reverse-linked-list/">Definition for singly-linked list.</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/triangle/">Triangle</a>
+                <li class="toctree-l2"><a class="reference internal" href="../triangle/">Triangle</a>
                 </li>
     </ul>
                     </li>
@@ -314,11 +314,11 @@
         
       
         
-          <li>Bfs &raquo;</li>
+          <li>Recursion &raquo;</li>
         
       
     
-    <li>01 matrix</li>
+    <li>Hanota lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -330,38 +330,25 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode-cn.com/problems/01-matrix/submissions/">link</a></p>
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/hanota-lcci/submissions/]</p>
 <pre><code class="language-python">class Solution:
-    def updateMatrix(self, mat: List[List[int]]) -&gt; List[List[int]]:
+    def hanota(self, A: List[int], B: List[int], C: List[int]) -&gt; None:
+        &quot;&quot;&quot;
+        Do not return anything, modify C in-place instead.
+        # &quot;&quot;&quot;
+        n = len(A)
+        self.move_hanota(n,A,B,C)
 
-        ROW, COL = len(mat), len(mat[0])
-        dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-        dist = 0
-        visited = [[0] * ROW for _ in range(COL)]# new ROW*COL matrix
-        res = [[0] * ROW for _ in range(COL)]# new ROW*COL matrix
-        queue = collections.deque() # double ended queue
-
-        #create new queue with all the zeros from mat 
-        for i in range(ROW):
-            for j in range(COL):
-                if mat[i][j] == 0:
-                    queue.append((i, j))
-                    visited[i][j] = 1 # since we cannot mark &quot;-1&quot; this time 
-
-        # bfs starts here
-        while queue:
-            for i in range(len(queue)):
-                x, y = queue.popleft()
-                if mat[x][y] == 1:
-                    res[x][y] = dist
-                for dx, dy in dirs:
-                    nx, ny = x + dx, y + dy
-                    if nx &lt; 0 or nx &gt;= ROW or ny &lt; 0 or ny &gt;= COL or visited[nx][ny] == 1:
-                        continue
-                    queue.append((nx, ny))
-                    visited[nx][ny] = 1
-            dist += 1
-        return res
+    def move_hanota(self,n,A,B,C): 
+        if n ==1: 
+            C.append(A[-1])
+            A.pop()
+            return 
+        else: 
+            self.move_hanota(n-1,A,C,B)
+            C.append(A[-1])
+            A.pop()
+            self.move_hanota(n-1,B,A,C)
 </code></pre>
               
             </div>
@@ -370,10 +357,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../color-fill-lcci/" class="btn btn-neutral float-right" title="Color fill lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../merge-two-sorted-lists/" class="btn btn-neutral float-right" title="Merge two sorted lists">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../python-operators/" class="btn btn-neutral" title="Python operators"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../combinations/" class="btn btn-neutral" title="Combinations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -399,10 +386,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../python-operators/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../combinations/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../color-fill-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../merge-two-sorted-lists/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
