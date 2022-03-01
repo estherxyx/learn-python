@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../../img/favicon.ico">
-  <title>Permutation in string - Learn Python</title>
+  <title>Factorial zeros lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Permutation in string";
-    var mkdocs_page_input_path = "leetcode/two-pointer/slicing-window/permutation-in-string.md";
+    var mkdocs_page_name = "Factorial zeros lcci";
+    var mkdocs_page_input_path = "leetcode/two-pointer/binary-search/factorial-zeros-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -261,25 +261,25 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../zero-matrix-lcci/">Zero matrix lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">Binary search</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/binary-search/">Binary search</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Binary search</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../binary-search/">Binary search</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/factorial-zeros-lcci/">Factorial zeros lcci</a>
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">Factorial zeros lcci</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/first-bad-version/">First bad version</a>
+                <li class="toctree-l3"><a class="reference internal" href="../first-bad-version/">First bad version</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../binary-search/search-insert-position/">Search insert position</a>
+                <li class="toctree-l3"><a class="reference internal" href="../search-insert-position/">Search insert position</a>
                 </li>
     </ul>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Slicing window</a>
-    <ul class="current">
-                <li class="toctree-l3"><a class="reference internal" href="../longest-substring-without-repeating-characters/">Longest substring without repeating characters</a>
+                <li class="toctree-l2"><a class="reference internal" href="#">Slicing window</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../slicing-window/longest-substring-without-repeating-characters/">Longest substring without repeating characters</a>
                 </li>
-                <li class="toctree-l3 current"><a class="reference internal current" href="./">Permutation in string</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../slicing-window/permutation-in-string/">Permutation in string</a>
                 </li>
-                <li class="toctree-l3"><a class="reference internal" href="../strStr/">strStr</a>
+                <li class="toctree-l3"><a class="reference internal" href="../../slicing-window/strStr/">strStr</a>
                 </li>
     </ul>
                 </li>
@@ -322,11 +322,11 @@
         
       
         
-          <li>Slicing window &raquo;</li>
+          <li>Binary search &raquo;</li>
         
       
     
-    <li>Permutation in string</li>
+    <li>Factorial zeros lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -338,47 +338,14 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode-cn.com/problems/permutation-in-string/">leetcode.cn</a></p>
+                <p>(leetcode.cc)[https://leetcode-cn.com/problems/factorial-zeros-lcci/submissions/]</p>
 <pre><code class="language-python">class Solution:
-    def checkInclusion(self, s1: str, s2: str) -&gt; bool:
-        # # s1 = &quot;ab&quot;
-        # # s2 = &quot;eidbaooo&quot;
-        # n = len(s1)
-        # m = len(s2)
-        # dic1 = []
-        # dic2 = []
-        # if n&gt;m: return False
-
-        # for i in range(n): 
-        #     dic1[i] = s1[i]
-
-        # for j in range(m):
-        #     for j&lt;j+n:
-        #         if s2[j] in dic1:
-        #             dic2.append(s2[j])
-        #     j += 1
-
-        #     if len(dic1) == len(dic2):
-        #         return True 
-        # return False
-
-        if len(s1) &gt; len(s2): return False
-        m, n = len(s1), len(s2)
-        dic1 = [0]*26
-        dic2 = [0]*26
-        # PartI: 初始化统计窗口字母表
-        for i in range(m):
-            dic1[ord(s1[i])-ord(&quot;a&quot;)] += 1 # s1
-            dic2[ord(s2[i])-ord(&quot;a&quot;)] += 1 # s2
-        if dic1 == dic2:
-                return True
-        # PartII: 滑动窗口字母表更新
-        for i in range(m,n):
-            dic2[ord(s2[i])-ord(&quot;a&quot;)] += 1 # 进
-            dic2[ord(s2[i-m])-ord(&quot;a&quot;)] -= 1 # 出
-            if dic1 == dic2:
-                return True
-        return False
+    def trailingZeroes(self, n: int) -&gt; int:
+        count = 0
+        while n&gt;=5:
+            n //=5
+            count += n 
+        return count     
 </code></pre>
               
             </div>
@@ -387,10 +354,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../strStr/" class="btn btn-neutral float-right" title="strStr">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../first-bad-version/" class="btn btn-neutral float-right" title="First bad version">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../longest-substring-without-repeating-characters/" class="btn btn-neutral" title="Longest substring without repeating characters"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../binary-search/" class="btn btn-neutral" title="Binary search"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -416,10 +383,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../longest-substring-without-repeating-characters/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../binary-search/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../strStr/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../first-bad-version/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
