@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Permutation i lcci - Learn Python</title>
+  <title>The masseuse lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Permutation i lcci";
-    var mkdocs_page_input_path = "leetcode/string/permutation-i-lcci.md";
+    var mkdocs_page_name = "The masseuse lcci";
+    var mkdocs_page_input_path = "leetcode/dynamic-programming/the-masseuse-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -141,17 +141,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Dynamic programming</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/climbing-stairs/">Climbing stairs</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dynamic programming</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../climbing-stairs/">Climbing stairs</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/contiguous-sequence-lcci/">Contiguous sequence lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../contiguous-sequence-lcci/">Contiguous sequence lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/house-robber/">House robber</a>
+                <li class="toctree-l2"><a class="reference internal" href="../house-robber/">House robber</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/the-masseuse-lcci/">The masseuse lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">The masseuse lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/three-steps-problem-lcci/">Three steps problem lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../three-steps-problem-lcci/">Three steps problem lcci</a>
                 </li>
     </ul>
                     </li>
@@ -219,25 +219,25 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">String</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../check-permutation-lcci/">Check permutation lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">String</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/check-permutation-lcci/">Check permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../compress-string-lcci/">Compress string lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/compress-string-lcci/">Compress string lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../is-unique-lcci/">Is unique lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/is-unique-lcci/">Is unique lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../isPalindrome/">isPalindrome</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/isPalindrome/">isPalindrome</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../longest-common-prefix/">Longest common prefix</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/longest-common-prefix/">Longest common prefix</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../palindrome-permutation-lcci/">Palindrome permutation lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/palindrome-permutation-lcci/">Palindrome permutation lcci</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Permutation i lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/permutation-i-lcci/">Permutation i lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../sparse-array-search-lcci/">Sparse array search lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/sparse-array-search-lcci/">Sparse array search lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../string-to-url-lcci/">String to url lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/string-to-url-lcci/">String to url lcci</a>
                 </li>
     </ul>
                     </li>
@@ -320,11 +320,11 @@
         
       
         
-          <li>String &raquo;</li>
+          <li>Dynamic programming &raquo;</li>
         
       
     
-    <li>Permutation i lcci</li>
+    <li>The masseuse lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -336,20 +336,28 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/permutation-i-lcci/comments/]</p>
+                <p>(leetcode)[https://leetcode-cn.com/problems/the-masseuse-lcci/]</p>
 <pre><code class="language-python">class Solution:
-    def permutation(self, S: str) -&gt; List[str]:
-        res = []
-        pivot = &quot;&quot;
-        def helper(S,pivot,res)-&gt;List[str]:
-            if S == &quot;&quot;: 
-                res.append(pivot)
-                return 
-            for i in range(len(S)):
-                cur = S[i]
-                helper(S[:i]+S[i+1:],pivot+cur,res)
-        helper(S,pivot,res)
-        return res
+    def massage(self, nums: List[int]) -&gt; int:
+        ## exact same code as housing robbing 
+        # dynamic_programming
+        if not nums: return 0
+        dp = {} 
+        dp[0] = nums[0]
+        if len(nums) == 1:
+            return dp[0]
+
+        dp[1] = max(nums[0], nums[1])
+        if len(nums) == 2:
+            return dp[1]
+
+        for room, val in enumerate(nums): #room=2
+            if room &gt;= 2:
+                dp[room] = max(
+                    dp[room-1],
+                    val+dp[room-2]
+                )
+        return max(dp.values())
 
 </code></pre>
               
@@ -359,10 +367,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../sparse-array-search-lcci/" class="btn btn-neutral float-right" title="Sparse array search lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../three-steps-problem-lcci/" class="btn btn-neutral float-right" title="Three steps problem lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../palindrome-permutation-lcci/" class="btn btn-neutral" title="Palindrome permutation lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../house-robber/" class="btn btn-neutral" title="House robber"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -388,10 +396,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../palindrome-permutation-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../house-robber/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../sparse-array-search-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../three-steps-problem-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
