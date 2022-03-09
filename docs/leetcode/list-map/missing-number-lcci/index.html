@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Insert into bits lcci - Learn Python</title>
+  <title>Missing number lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Insert into bits lcci";
-    var mkdocs_page_input_path = "leetcode/bit-operation/insert-into-bits-lcci.md";
+    var mkdocs_page_name = "Missing number lcci";
+    var mkdocs_page_input_path = "leetcode/list-map/missing-number-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -103,17 +103,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Bit operation</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../convert-integer-lcci/">Convert integer lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Bit operation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/convert-integer-lcci/">Convert integer lcci</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Insert into bits lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/insert-into-bits-lcci/">Insert into bits lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../power-of-two/">Power of two</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/power-of-two/">Power of two</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../reverse-bits-lcci/">Reverse bits lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/reverse-bits-lcci/">Reverse bits lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../single-number/">Single number</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/single-number/">Single number</a>
                 </li>
     </ul>
                     </li>
@@ -187,17 +187,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/diving-board-lcci/">Diving board lcci</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../diving-board-lcci/">Diving board lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/missing-number-lcci/">Missing number lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Missing number lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum/">Two sum</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/words-frequency-lcci/">Words frequency lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../words-frequency-lcci/">Words frequency lcci</a>
                 </li>
     </ul>
                     </li>
@@ -324,11 +324,11 @@
         
       
         
-          <li>Bit operation &raquo;</li>
+          <li>List map &raquo;</li>
         
       
     
-    <li>Insert into bits lcci</li>
+    <li>Missing number lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -340,25 +340,29 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/insert-into-bits-lcci/]</p>
+                <p>(leetcode)[https://leetcode-cn.com/problems/missing-number-lcci/submissions/]</p>
 <pre><code class="language-python">class Solution:
-    def insertBits(self, N: int, M: int, i: int, j: int) -&gt; int:
-       # N = 10000000000 
-       # M =     10011
-       # ret=[1000][10011][00]
-       # i =  2 j = 6
-
-        i_n = 0 
-        i_m = 0 
-        n = bin(N)[2:]
-        m = bin(M)[2:]
-
-        if len(m) == j-i+1: 
-            ret = n[:-(j+1)] + m + n[len(n)-i:]
-        else: 
-            pivot_str = &quot;0&quot;*(j-i+1-len(m)) + m
-            ret = n[:-(j+1)] + pivot_str + n[len(n)-i:]
-        return int(ret,2)
+    def missingNumber(self, nums: List[int]) -&gt; int:
+        # #solution #1 
+        # i = 0
+        # n = len(nums)
+        # while i &lt;=n: 
+        #     if i in nums: 
+        #         i += 1
+        #     else: 
+        #         return i
+        # # solution #2 
+        # return sum(range(len(nums)+1))-sum(nums)
+        # solution #3 
+        nums.sort()
+        i = 0
+        n = len(nums)
+        if n != nums[n-1]: return n 
+        while i&lt;=n: 
+            if i == nums[i]:
+                i +=1 
+            else: 
+                return i
 </code></pre>
               
             </div>
@@ -367,10 +371,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../power-of-two/" class="btn btn-neutral float-right" title="Power of two">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../two-sum-ii-input-array-is-sorted/" class="btn btn-neutral float-right" title="Two sum ii input array is sorted">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../convert-integer-lcci/" class="btn btn-neutral" title="Convert integer lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../diving-board-lcci/" class="btn btn-neutral" title="Diving board lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -396,10 +400,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../convert-integer-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../diving-board-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../power-of-two/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../two-sum-ii-input-array-is-sorted/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
