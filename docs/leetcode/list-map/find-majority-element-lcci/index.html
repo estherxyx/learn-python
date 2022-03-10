@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Check permutation lcci - Learn Python</title>
+  <title>Find majority element lcci - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Check permutation lcci";
-    var mkdocs_page_input_path = "leetcode/string/check-permutation-lcci.md";
+    var mkdocs_page_name = "Find majority element lcci";
+    var mkdocs_page_input_path = "leetcode/list-map/find-majority-element-lcci.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -187,19 +187,19 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/diving-board-lcci/">Diving board lcci</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../diving-board-lcci/">Diving board lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/find-majority-element-lcci/">Find majority element lcci</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Find majority element lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/missing-number-lcci/">Missing number lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../missing-number-lcci/">Missing number lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum/">Two sum</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/words-frequency-lcci/">Words frequency lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../words-frequency-lcci/">Words frequency lcci</a>
                 </li>
     </ul>
                     </li>
@@ -225,25 +225,25 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">String</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Check permutation lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">String</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/check-permutation-lcci/">Check permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../compress-string-lcci/">Compress string lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/compress-string-lcci/">Compress string lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../is-unique-lcci/">Is unique lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/is-unique-lcci/">Is unique lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../isPalindrome/">isPalindrome</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/isPalindrome/">isPalindrome</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../longest-common-prefix/">Longest common prefix</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/longest-common-prefix/">Longest common prefix</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../palindrome-permutation-lcci/">Palindrome permutation lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/palindrome-permutation-lcci/">Palindrome permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../permutation-i-lcci/">Permutation i lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/permutation-i-lcci/">Permutation i lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../sparse-array-search-lcci/">Sparse array search lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/sparse-array-search-lcci/">Sparse array search lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../string-to-url-lcci/">String to url lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/string-to-url-lcci/">String to url lcci</a>
                 </li>
     </ul>
                     </li>
@@ -326,11 +326,11 @@
         
       
         
-          <li>String &raquo;</li>
+          <li>List map &raquo;</li>
         
       
     
-    <li>Check permutation lcci</li>
+    <li>Find majority element lcci</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -342,18 +342,19 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode-cn.com/problems/check-permutation-lcci/">leetcode.cc</a></p>
+                <p>(leetcode)[https://leetcode-cn.com/problems/find-majority-element-lcci/submissions/]</p>
 <pre><code class="language-python">class Solution:
-    def CheckPermutation(self, s1: str, s2: str) -&gt; bool:
-        dic1 = [0]*26
-        dic2 = [0]*26 
-
-        if len(s1) != len(s2): return False 
-
-        for i in range(len(s1)): 
-            dic1[ord(s1[i])-ord(&quot;a&quot;)] += 1
-            dic2[ord(s2[i])-ord(&quot;a&quot;)] += 1
-        return dic1 ==dic2
+    def majorityElement(self, nums: List[int]) -&gt; int:
+        res = -1 
+        count  = 0
+        for n in nums: 
+            if not count: 
+                res = n 
+            if n == res: 
+                count += 1 
+            else: 
+                count -= 1 
+        return res if count and nums.count(res)&gt; len(nums)//2 else -1 
 
 </code></pre>
               
@@ -363,10 +364,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../compress-string-lcci/" class="btn btn-neutral float-right" title="Compress string lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../missing-number-lcci/" class="btn btn-neutral float-right" title="Missing number lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../set/power-set-lcci/" class="btn btn-neutral" title="Power set lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../diving-board-lcci/" class="btn btn-neutral" title="Diving board lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -392,10 +393,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../set/power-set-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../diving-board-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../compress-string-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../missing-number-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
