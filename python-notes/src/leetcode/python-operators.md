@@ -51,3 +51,15 @@
 # <<2 :        000010
 # therefore 2 in decimal 
 ```
+### if break and if continue 
+```python
+for i in range(10):
+    if i ==2: 
+        break
+# >>> 1 (escape 2 and followings)
+
+for i in range(10):
+    if i ==2:
+        continue
+>>>> 1 3 4 5 ...(only escape 2 )
+```
