@@ -1,4 +1,4 @@
-(leetcode)[https://leetcode-cn.com/problems/find-majority-element-lcci/submissions/]
+[leetcode](https://leetcode-cn.com/problems/find-majority-element-lcci/submissions/)
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:

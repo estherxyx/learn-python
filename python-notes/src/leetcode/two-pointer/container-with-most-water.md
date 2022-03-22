@@ -1,4 +1,4 @@
-https://leetcode-cn.com/problems/container-with-most-water/submissions/
+[leetcode](https://leetcode-cn.com/problems/container-with-most-water/submissions/)
 ```python
 class Solution:
     def maxArea(self, height: List[int]) -> int:

@@ -1,4 +1,4 @@
-(leetcode.cc)[https://leetcode-cn.com/problems/zero-matrix-lcci/submissions/]
+[leetcode.cc](https://leetcode-cn.com/problems/zero-matrix-lcci/submissions/)
 ```python
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:

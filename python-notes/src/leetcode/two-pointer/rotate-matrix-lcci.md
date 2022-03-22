@@ -1,4 +1,4 @@
-(leetcode.cc)[https://leetcode-cn.com/problems/rotate-matrix-lcci/submissions/]
+[leetcode.cc](https://leetcode-cn.com/problems/rotate-matrix-lcci/submissions/)
 ```python
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
