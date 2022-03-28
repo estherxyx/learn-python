@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Flood fill - Learn Python</title>
+  <title>Minimum index sum of two lists - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Flood fill";
-    var mkdocs_page_input_path = "leetcode/dfs/flood-fill.md";
+    var mkdocs_page_name = "Minimum index sum of two lists";
+    var mkdocs_page_input_path = "leetcode/list-map/minimum-index-sum-of-two-lists.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -129,17 +129,17 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dfs</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../flood-fill-myths/">Flood fill myths</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Dfs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill-myths/">Flood fill myths</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Flood fill</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill/">Flood fill</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../max-area-of-island/">Max area of island</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/max-area-of-island/">Max area of island</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../number-of-islands/">Number of islands</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/number-of-islands/">Number of islands</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../paths-with-sum-lcci/">Paths with sum lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dfs/paths-with-sum-lcci/">Paths with sum lcci</a>
                 </li>
     </ul>
                     </li>
@@ -189,25 +189,25 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/diving-board-lcci/">Diving board lcci</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../diving-board-lcci/">Diving board lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/find-majority-element-lcci/">Find majority element lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../find-majority-element-lcci/">Find majority element lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/group-anagrams-lcci/">Group anagrams lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../group-anagrams-lcci/">Group anagrams lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/living-people-lcci/">Living people lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../living-people-lcci/">Living people lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/minimum-index-sum-of-two-lists/">Minimum index sum of two lists</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Minimum index sum of two lists</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/missing-number-lcci/">Missing number lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../missing-number-lcci/">Missing number lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum/">Two sum</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/words-frequency-lcci/">Words frequency lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../words-frequency-lcci/">Words frequency lcci</a>
                 </li>
     </ul>
                     </li>
@@ -340,11 +340,11 @@
         
       
         
-          <li>Dfs &raquo;</li>
+          <li>List map &raquo;</li>
         
       
     
-    <li>Flood fill</li>
+    <li>Minimum index sum of two lists</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -356,27 +356,21 @@
           <div role="main">
             <div class="section">
               
-                <pre><code class="language-python">class Solution:
-    def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -&gt; List[List[int]]:
+                <p><a href="https://leetcode-cn.com/problems/minimum-index-sum-of-two-lists/submissions/">leetcode.cc</a></p>
+<pre><code class="language-python">class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -&gt; List[str]:
+        ret = []
+        _sum = inf
+        dic = {s: i for i,s in enumerate(list1)}
+        for i, s in enumerate(list2):
+            if s in dic: 
+                if i + dic[s] &lt; _sum: 
+                    _sum = i +dic[s]
+                    ret = [s]
+                elif i + dic[s] == _sum: 
+                    ret.append(s)
+        return ret 
 
-        ROW = len(image)
-        COL = len(image[0])
-        valid_pixel = image[sr][sc]
-
-        def isValidPosition(x, y):
-            return x &gt;= 0 and y &gt;=0 and x &lt; ROW and y &lt; COL and image[x][y]== valid_pixel
-
-        def dfs(x, y):
-            if image[x][y] == valid_pixel: 
-                image[x][y] = newColor
-                for nx,ny in [(x,y+1),(x+1,y),(x,y-1),(x-1,y)]:
-                    if isValidPosition(nx,ny):
-                        dfs(nx,ny)
-
-        if valid_pixel != newColor:
-            dfs(sr,sc)
-            return image
-        else: return image
 </code></pre>
               
             </div>
@@ -385,10 +379,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../max-area-of-island/" class="btn btn-neutral float-right" title="Max area of island">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../missing-number-lcci/" class="btn btn-neutral float-right" title="Missing number lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../flood-fill-myths/" class="btn btn-neutral" title="Flood fill myths"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../living-people-lcci/" class="btn btn-neutral" title="Living people lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -414,10 +408,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../flood-fill-myths/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../living-people-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../max-area-of-island/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../missing-number-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
