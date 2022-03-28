@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Power set lcci - Learn Python</title>
+  <title>Can place flowers - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Power set lcci";
-    var mkdocs_page_input_path = "leetcode/set/power-set-lcci.md";
+    var mkdocs_page_name = "Can place flowers";
+    var mkdocs_page_input_path = "leetcode/list-map/can-place-flowers.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -189,27 +189,27 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/can-place-flowers/">Can place flowers</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">List map</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Can place flowers</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/diving-board-lcci/">Diving board lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../diving-board-lcci/">Diving board lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/find-majority-element-lcci/">Find majority element lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../find-majority-element-lcci/">Find majority element lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/group-anagrams-lcci/">Group anagrams lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../group-anagrams-lcci/">Group anagrams lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/living-people-lcci/">Living people lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../living-people-lcci/">Living people lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/minimum-index-sum-of-two-lists/">Minimum index sum of two lists</a>
+                <li class="toctree-l2"><a class="reference internal" href="../minimum-index-sum-of-two-lists/">Minimum index sum of two lists</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/missing-number-lcci/">Missing number lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../missing-number-lcci/">Missing number lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
+                <li class="toctree-l2"><a class="reference internal" href="../two-sum/">Two sum</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/words-frequency-lcci/">Words frequency lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../words-frequency-lcci/">Words frequency lcci</a>
                 </li>
     </ul>
                     </li>
@@ -229,9 +229,9 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Set</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Power set lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Set</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../set/power-set-lcci/">Power set lcci</a>
                 </li>
     </ul>
                     </li>
@@ -342,11 +342,11 @@
         
       
         
-          <li>Set &raquo;</li>
+          <li>List map &raquo;</li>
         
       
     
-    <li>Power set lcci</li>
+    <li>Can place flowers</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -358,15 +358,17 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/power-set-lcci/]</p>
+                <p><a href="https://leetcode-cn.com/problems/can-place-flowers/submissions/">leetcode.cc</a></p>
 <pre><code class="language-python">class Solution:
-    def subsets(self, nums: List[int]) -&gt; List[List[int]]:
-        res = [[],]
-        if not nums: 
-            return res
-        for n in nums:
-            res += [i+[n] for i in res]
-        return res 
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -&gt; bool:
+        count = 0
+        flower = [0] + flowerbed+ [0]
+        for i in range(1,len(flower)-1): 
+            if flower[i-1]==0 and flower[i]==0 and flower[i+1]==0 : 
+                count += 1 
+                flower[i] =1 
+        return count&gt;=n
+
 </code></pre>
               
             </div>
@@ -375,10 +377,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../string/check-permutation-lcci/" class="btn btn-neutral float-right" title="Check permutation lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../diving-board-lcci/" class="btn btn-neutral float-right" title="Diving board lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../recursion/triangle/" class="btn btn-neutral" title="Triangle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../linked-list/remove-nth-node-from-end-of-list/" class="btn btn-neutral" title="Remove nth node from end of list"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -404,10 +406,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../recursion/triangle/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../linked-list/remove-nth-node-from-end-of-list/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../string/check-permutation-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../diving-board-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
