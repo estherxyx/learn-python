@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Permutation ii lcci - Learn Python</title>
+  <title>Special array with x elements greater than or equal x - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Permutation ii lcci";
-    var mkdocs_page_input_path = "leetcode/string/permutation-ii-lcci.md";
+    var mkdocs_page_name = "Special array with x elements greater than or equal x";
+    var mkdocs_page_input_path = "leetcode/sort/special-array-with-x-elements-greater-than-or-equal-x.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -243,39 +243,39 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Sort</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../sort/special-array-with-x-elements-greater-than-or-equal-x/">Special array with x elements greater than or equal x</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Sort</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Special array with x elements greater than or equal x</a>
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">String</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../check-permutation-lcci/">Check permutation lcci</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">String</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/check-permutation-lcci/">Check permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../compress-string-lcci/">Compress string lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/compress-string-lcci/">Compress string lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../is-unique-lcci/">Is unique lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/is-unique-lcci/">Is unique lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../isPalindrome/">isPalindrome</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/isPalindrome/">isPalindrome</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../jewels-and-stones/">Jewels and stones</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/jewels-and-stones/">Jewels and stones</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../longest-common-prefix/">Longest common prefix</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/longest-common-prefix/">Longest common prefix</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../maximum-nesting-depth-of-the-parentheses/">Maximum nesting depth of the parentheses</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/maximum-nesting-depth-of-the-parentheses/">Maximum nesting depth of the parentheses</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../palindrome-permutation-lcci/">Palindrome permutation lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/palindrome-permutation-lcci/">Palindrome permutation lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../permutation-i-lcci/">Permutation i lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/permutation-i-lcci/">Permutation i lcci</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Permutation ii lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/permutation-ii-lcci/">Permutation ii lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../rotate-string/">Rotate string</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/rotate-string/">Rotate string</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../sparse-array-search-lcci/">Sparse array search lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/sparse-array-search-lcci/">Sparse array search lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../string-to-url-lcci/">String to url lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../string/string-to-url-lcci/">String to url lcci</a>
                 </li>
     </ul>
                     </li>
@@ -364,11 +364,11 @@
         
       
         
-          <li>String &raquo;</li>
+          <li>Sort &raquo;</li>
         
       
     
-    <li>Permutation ii lcci</li>
+    <li>Special array with x elements greater than or equal x</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -380,18 +380,16 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode-cn.com/problems/permutation-ii-lcci/submissions/">leetcode.cc</a></p>
+                <p><a href="https://leetcode-cn.com/problems/special-array-with-x-elements-greater-than-or-equal-x/submissions/">leetcode</a></p>
 <pre><code class="language-python">class Solution:
-    def permutation(self, S: str) -&gt; List[str]:
-        n = len(S)
-        ret = []
-        if not n: return [&quot;&quot;]
-        for i in range(n):
-            if S[i] in S[:i]:
-                continue 
-            for s in self. permutation(S[:i]+S[i+1:]):
-                ret.append(S[i]+s)
-        return ret
+    def specialArray(self, nums: List[int]) -&gt; int:
+        nums.sort()
+        for i in range(len(nums)+1):
+            if nums[-i] &lt;i: 
+                if nums[-i] &lt;i-1:
+                    return i-1
+                else: return -1 
+        return len(nums) 
 
 </code></pre>
               
@@ -401,10 +399,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../rotate-string/" class="btn btn-neutral float-right" title="Rotate string">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../string/check-permutation-lcci/" class="btn btn-neutral float-right" title="Check permutation lcci">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../permutation-i-lcci/" class="btn btn-neutral" title="Permutation i lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../set/power-set-lcci/" class="btn btn-neutral" title="Power set lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -430,10 +428,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../permutation-i-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../set/power-set-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../rotate-string/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../string/check-permutation-lcci/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
