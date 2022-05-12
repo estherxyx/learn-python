@@ -20,4 +20,20 @@ class Solution:
                 return pivot
             
         return j
+    # solution #2
+
+    class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        if target >nums[len(nums)-1]:return len(nums)
+        i = 0
+        j = len(nums)-1
+        while j>i:
+            mid = (j-i)//2 +i
+            if nums[mid] <target:
+                i = mid +1
+            else:
+                j = mid
+        return j
+
+
 ```
