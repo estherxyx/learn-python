@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Successor lcci - Learn Python</title>
+  <title>Lowest common ancestor of a binary search tree - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Successor lcci";
-    var mkdocs_page_input_path = "leetcode/binary-tree/successor-lcci.md";
+    var mkdocs_page_name = "Lowest common ancestor of a binary search tree";
+    var mkdocs_page_input_path = "leetcode/binary-tree/lowest-common-ancestor-of-a-binary-search-tree.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -105,7 +105,7 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../legal-binary-search-tree-lcci/">Legal binary search tree lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../lowest-common-ancestor-of-a-binary-search-tree/">Lowest common ancestor of a binary search tree</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Lowest common ancestor of a binary search tree</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../merge-two-binary-trees/">Merge two binary trees</a>
                 </li>
@@ -119,7 +119,7 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../search-in-a-binary-search-tree/">Search in a binary search tree</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Successor lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../successor-lcci/">Successor lcci</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../symmetric-tree/">Symmetric tree</a>
                 </li>
@@ -429,7 +429,7 @@
         
       
     
-    <li>Successor lcci</li>
+    <li>Lowest common ancestor of a binary search tree</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -441,7 +441,7 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/successor-lcci/submissions/]</p>
+                <p><a href="https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/">leetcode</a></p>
 <pre><code class="language-python"># Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -450,19 +450,29 @@
 #         self.right = None
 
 class Solution:
-    def inorderSuccessor(self, root: TreeNode, p: TreeNode) -&gt; TreeNode:
-        #binary search 
-        #this works due to the property of an inorder bst 
-        ret = None 
-        cur = root 
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -&gt; 'TreeNode':
+        def findPath(root,target) -&gt;List[TreeNode]:
+            path = []
+            node = root
+            while node != target:
+                path.append(node)
+                if node.val &gt; target.val:
+                    node = node.left
+                else:
+                    node = node.right
+            path.append(node)
+            return path
 
-        while cur: 
-            if cur.val &lt;= p.val: 
-                cur = cur.right 
-            else: 
-                ret = cur 
-                cur = cur.left 
-        return ret 
+        p_path = findPath(root,p)
+        q_path = findPath(root,q)
+        ret = None
+        for i in p_path:
+            for j in q_path:
+                if i == j:
+                    ret = i
+                else: break
+        return ret
+
 </code></pre>
               
             </div>
@@ -471,10 +481,10 @@ class Solution:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../symmetric-tree/" class="btn btn-neutral float-right" title="Symmetric tree">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../merge-two-binary-trees/" class="btn btn-neutral float-right" title="Merge two binary trees">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../search-in-a-binary-search-tree/" class="btn btn-neutral" title="Search in a binary search tree"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../legal-binary-search-tree-lcci/" class="btn btn-neutral" title="Legal binary search tree lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -500,10 +510,10 @@ class Solution:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../search-in-a-binary-search-tree/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../legal-binary-search-tree-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../symmetric-tree/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../merge-two-binary-trees/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
