@@ -18,3 +18,16 @@ class Solution:
         return True
 
 ```
+
+```python
+# solution #2 from EPI book solution
+def tolower(s):
+            s_lower = ""
+            for c in s:
+                if "a"<=c<="z" or "A"<=c<="Z" or "0"<=c<="9":
+                    s_lower += c.lower()
+            return s_lower
+        c = tolower(s)
+        print(c)
+        return all(c[i]==c[~i] for i in range(len(c)//2))
+```
