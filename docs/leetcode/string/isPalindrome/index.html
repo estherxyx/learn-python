@@ -462,6 +462,17 @@
         return True
 
 </code></pre>
+<pre><code class="language-python"># solution #2 from EPI book solution
+def tolower(s):
+            s_lower = &quot;&quot;
+            for c in s:
+                if &quot;a&quot;&lt;=c&lt;=&quot;z&quot; or &quot;A&quot;&lt;=c&lt;=&quot;Z&quot; or &quot;0&quot;&lt;=c&lt;=&quot;9&quot;:
+                    s_lower += c.lower()
+            return s_lower
+        c = tolower(s)
+        print(c)
+        return all(c[i]==c[~i] for i in range(len(c)//2))
+</code></pre>
               
             </div>
           </div>
