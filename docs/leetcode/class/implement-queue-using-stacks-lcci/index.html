@@ -456,33 +456,22 @@
         self.stack_in = []
         self.stack_out = []
 
-
     def push(self, x: int) -&gt; None:
         self.stack_in.append(x)
-
-
     def pop(self) -&gt; int:
-
         if len(self.stack_out)==0:
             for i in range(len(self.stack_in)):
                 self.stack_out.append(self.stack_in.pop())
         return self.stack_out.pop()
-
-
     def peek(self) -&gt; int:
-
         if len(self.stack_out)==0:
             for i in range(len(self.stack_in)):
                 self.stack_out.append(self.stack_in.pop())
         temp = self.stack_out.pop()
         self.stack_out.append(temp)
         return temp
-
-
     def empty(self) -&gt; bool:
         return len(self.stack_in)==0 and len(self.stack_out)==0
-
-
 
 # Your MyQueue object will be instantiated and called as such:
 # obj = MyQueue()
