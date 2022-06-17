@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Three steps problem lcci - Learn Python</title>
+  <title>Kth largest element in a stream - Learn Python</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Three steps problem lcci";
-    var mkdocs_page_input_path = "leetcode/dynamic-programming/three-steps-problem-lcci.md";
+    var mkdocs_page_name = "Kth largest element in a stream";
+    var mkdocs_page_input_path = "leetcode/heap/kth-largest-element-in-a-stream.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -175,25 +175,25 @@
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dynamic programming</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../climbing-stairs/">Climbing stairs</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Dynamic programming</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/climbing-stairs/">Climbing stairs</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../contiguous-sequence-lcci/">Contiguous sequence lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/contiguous-sequence-lcci/">Contiguous sequence lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../house-robber/">House robber</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/house-robber/">House robber</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../the-masseuse-lcci/">The masseuse lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/the-masseuse-lcci/">The masseuse lcci</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Three steps problem lcci</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/three-steps-problem-lcci/">Three steps problem lcci</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../unique-paths/">Unique paths</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../dynamic-programming/unique-paths/">Unique paths</a>
                 </li>
     </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Heap</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../heap/kth-largest-element-in-a-stream/">Kth largest element in a stream</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Heap</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Kth largest element in a stream</a>
                 </li>
     </ul>
                     </li>
@@ -439,11 +439,11 @@
         
       
         
-          <li>Dynamic programming &raquo;</li>
+          <li>Heap &raquo;</li>
         
       
     
-    <li>Three steps problem lcci</li>
+    <li>Kth largest element in a stream</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -455,21 +455,25 @@
           <div role="main">
             <div class="section">
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/three-steps-problem-lcci/submissions/]</p>
-<pre><code class="language-python">class Solution:
-    def waysToStep(self, n: int) -&gt; int:
-        if n&lt;=2: return n
-        mod = 1000000007
-        dp = [0]*(n+1)
-        dp[0] = 1
-        dp[1] = 1 
-        dp[2] = 2
+                <p><a href="https://leetcode.cn/problems/kth-largest-element-in-a-stream/">leetcode</a></p>
+<pre><code class="language-python">class KthLargest:
 
-        for i in range(3,n+1):
-            dp[i] = (dp[i-1] + dp[i-2] + dp[i-3]) % mod
-        return dp[n]
+    def __init__(self, k: int, nums: List[int]):
+        self.k = k
+        self.nums = nums
+        heapify(self.nums)
+        while len(self.nums) &gt; self.k:
+            heappop(self.nums)
 
+    def add(self, val: int) -&gt; int:
+        heappush(self.nums,val)
+        while len(self.nums) &gt; self.k:
+            heappop(self.nums)
+        return self.nums[0]
 
+# Your KthLargest object will be instantiated and called as such:
+# obj = KthLargest(k, nums)
+# param_1 = obj.add(val)
 </code></pre>
               
             </div>
@@ -478,10 +482,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../unique-paths/" class="btn btn-neutral float-right" title="Unique paths">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../leetcodecn-contests/keep-multiplying-found-values-by-two/" class="btn btn-neutral float-right" title="Keep multiplying found values by two">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../the-masseuse-lcci/" class="btn btn-neutral" title="The masseuse lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../dynamic-programming/unique-paths/" class="btn btn-neutral" title="Unique paths"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -507,10 +511,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../the-masseuse-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../dynamic-programming/unique-paths/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../unique-paths/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../leetcodecn-contests/keep-multiplying-found-values-by-two/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
