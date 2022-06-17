@@ -1,4 +1,4 @@
-(leetcode.cc)[https://leetcode-cn.com/problems/check-subtree-lcci/submissions/]
+[leetcode.cc](https://leetcode-cn.com/problems/check-subtree-lcci/submissions/)
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
