@@ -456,7 +456,8 @@
             <div class="section">
               
                 <p><a href="https://leetcode-cn.com/problems/permutations/">leetcode.cn</a></p>
-<pre><code class="language-python">class Solution:
+<pre><code class="language-python"># solution #1
+class Solution:
     def permute(self, nums: List[int]) -&gt; List[List[int]]:
         res = []
         def helper(nums,tmp):
@@ -468,6 +469,20 @@
 
         helper(nums,[])
         return res
+# solution #2
+class Solution:
+    def permute(self, nums: List[int]) -&gt; List[List[int]]:
+        def my_per(i):
+            if i ==len(nums)-1:
+                ret.append(nums.copy())
+                return
+            for j in range(i,len(nums)):
+                nums[i], nums[j] = nums[j],nums[i]
+                my_per(i+1)
+                nums[i], nums[j] = nums[j],nums[i]
+        ret = []
+        my_per(0)
+        return ret
 </code></pre>
               
             </div>
