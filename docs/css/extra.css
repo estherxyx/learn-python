@@ -10,3 +10,22 @@ footer {
 body {
     font-family: monospace
 }
+
+
+.my-cat {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  position: relative;
+  animation-name: my-cat-move;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border-radius: 10%;
+}
+
+@keyframes my-cat-move {
+  0%   {background-color:white; left:10%; top:0px;}
+  50%  {background-color:#9ccc66; left:60%; top:0px; }
+  100% {background-color:white; left:10%; top:0px;}
+}
