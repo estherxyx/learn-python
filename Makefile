@@ -11,6 +11,7 @@ mkdocs-serve:
 		#mkdocs build
 
 git-push:
+		git pull
 		git add .
 		git commit -m "update all"
 		git push
