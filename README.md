@@ -1,4 +1,4 @@
-# learn-python
+# sde-learnings
  
 ## Markdown syntax
 > quote

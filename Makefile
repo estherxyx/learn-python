@@ -1,11 +1,16 @@
-update-docs:
+build-docs:
 		rm -rf docs
-		mkdocs build --config-file python-notes/mkdocs.yml
-		cp -rf python-notes/generated/ docs/
-		rm -rf python-notes/generated
+		mkdocs build --config-file learning-notes/mkdocs.yml
+		cp -rf learning-notes/generated/ docs/
+		rm -rf learning-notes/generated
 		git add docs
 		git commit -m "Update docs"
 
 mkdocs-serve:
-		mkdocs serve --config-file python-notes/mkdocs.yml
+		mkdocs serve --config-file learning-notes/mkdocs.yml
 		#mkdocs build
+
+git-push:
+		git add .
+		git commit -m "update all"
+		git push
