@@ -16,6 +16,12 @@ extra_css:
 plugins:
     - search
     - awesome-pages
+    - minify:
+        minify_html: true
+        minify_js: true
+        minify_css: true
+        htmlmin_opts:
+            remove_comments: true
 nav:
     - Home: index.md
     - ...
