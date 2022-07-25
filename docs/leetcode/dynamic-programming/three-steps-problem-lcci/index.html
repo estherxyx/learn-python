@@ -1,461 +1,3366 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Three steps problem lcci - Learn Python</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../../css/theme.css" />
-  <link rel="stylesheet" href="../../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  <link href="../../../css/extra.css" rel="stylesheet" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Three steps problem lcci";
-    var mkdocs_page_input_path = "leetcode/dynamic-programming/three-steps-problem-lcci.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Three steps problem lcci - SDE Learning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> Learn Python</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Backend</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../backend/keywords/">Cloud Services</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Frontend</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../frontend/Redux/">Redux</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../frontend/react-basics/">React basics</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Leetcode</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../../data-structure/">Data structure</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../python-operators/">Python operators</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Bfs</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../bfs/01-matrix/">01 matrix</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bfs/color-fill-lcci/">Color fill lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bfs/rotting-oranges/">Rotting oranges</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bfs/route-between-nodes-lcci/">Route between nodes lcci</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Binary tree</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/balanced-binary-tree/">Balanced binary tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-search-tree-iterator/">Binary search tree iterator</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-inorder-traversal/">Binary tree inorder traversal</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/binary-tree-level-order-traversal/">Binary tree level order traversal</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/check-subtree-lcci/">Check subtree lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/convert-sorted-array-to-binary-search-tree/">Convert sorted array to binary search tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/convert-sorted-list-to-binary-search-tree/">Convert sorted list to binary search tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/first-common-ancestor-lcci/">First common ancestor lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/flatten-binary-tree-to-linked-list/">Flatten binary tree to linked list</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/invert-binary-tree/">Invert binary tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/legal-binary-search-tree-lcci/">Legal binary search tree lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/lowest-common-ancestor-of-a-binary-search-tree/">Lowest common ancestor of a binary search tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/merge-two-binary-trees/">Merge two binary trees</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/minimum-depth-of-binary-tree/">Minimum depth of binary tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/minimum-height-tree-lcci/">Minimum height tree lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/path-sum/">Path sum</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/populating-next-right-pointers-in-each-node/">Populating next right pointers in each node</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/search-in-a-binary-search-tree/">Search in a binary search tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/successor-lcci/">Successor lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../binary-tree/symmetric-tree/">Symmetric tree</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Bit operation</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/convert-integer-lcci/">Convert integer lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/insert-into-bits-lcci/">Insert into bits lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/power-of-two/">Power of two</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/reverse-bits-lcci/">Reverse bits lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../bit-operation/single-number/">Single number</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Class</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/implement-queue-using-stacks-lcci/">Implement queue using stacks lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/min-stack-lcci/">Min stack lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/stack-of-plates-lcci/">Stack of plates lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../class/three-in-one-lcci/">Three in one lcci</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Dfs</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/balanced-binary-tree/">Balanced binary tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/combination-sum/">Combination sum</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill-myths/">Flood fill myths</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/flood-fill/">Flood fill</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/max-area-of-island/">Max area of island</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/n-ary-tree-postorder-traversal/">N ary tree postorder traversal</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/n-ary-tree-preorder-traversal/">N ary tree preorder traversal</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/number-of-islands/">Number of islands</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/paths-with-sum-lcci/">Paths with sum lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../dfs/word-search/">Word search</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Dynamic programming</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../climbing-stairs/">Climbing stairs</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../contiguous-sequence-lcci/">Contiguous sequence lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../house-robber/">House robber</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../the-masseuse-lcci/">The masseuse lcci</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Three steps problem lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../unique-paths/">Unique paths</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Heap</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../heap/kth-largest-element-in-a-stream/">Kth largest element in a stream</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Leetcodecn contests</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../leetcodecn-contests/keep-multiplying-found-values-by-two/">Keep multiplying found values by two</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">Https:</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="#">Leetcode cn.com</a>
-    <ul>
-                <li class="toctree-l4"><a class="reference internal" href="../../leetcodecn-contests/https%3A/leetcode-cn.com/coall-divisions-with-the-highest-score-of-a-binary-array/">Coall divisions with the highest score of a binary array</a>
-                </li>
-    </ul>
-                </li>
-    </ul>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Linked list</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/delete-middle-node-lcci/">Delete middle node lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/kth-node-from-end-of-list-lcci/">Kth node from end of list lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/linked-list-cycle/">Linked list cycle</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/merge-sorted-lists/">Merge sorted lists</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/middle-of-the-linked-list/">Middle of the linked list</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/palindrome-linked-list-lcci/">Palindrome linked list lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/palindrome-linked-list/">Palindrome linked list</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/remove-duplicate-node-lcci/">Remove duplicate node lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/remove-nth-node-from-end-of-list/">Remove nth node from end of list</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../linked-list/reverse-linked-list/">Reverse linked list</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">List map</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/can-place-flowers/">Can place flowers</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/diving-board-lcci/">Diving board lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/find-majority-element-lcci/">Find majority element lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/group-anagrams-lcci/">Group anagrams lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/living-people-lcci/">Living people lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/merge-intervals/">Merge intervals</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/minimum-absolute-difference/">Minimum absolute difference</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/minimum-index-sum-of-two-lists/">Minimum index sum of two lists</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/missing-number-lcci/">Missing number lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/most-common-word/">Most common word</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/pascals-triangle/">Pascals triangle</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/problems/">Problems</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/subsets/">Subsets</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum-ii-input-array-is-sorted/">Two sum ii input array is sorted</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/two-sum/">Two sum</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../list-map/words-frequency-lcci/">Words frequency lcci</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Recursion</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/combinations/">Combinations</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/construct-string-from-binary-tree/">Construct string from binary tree</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/hanota-lcci/">Hanota lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/merge-two-sorted-lists/">Merge two sorted lists</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/permutations/">Permutations</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/reverse-linked-list/">Definition for singly-linked list.</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../recursion/triangle/">Triangle</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Set</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../set/power-set-lcci/">Power set lcci</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Sort</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../sort/special-array-with-x-elements-greater-than-or-equal-x/">Special array with x elements greater than or equal x</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">String</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/check-permutation-lcci/">Check permutation lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/compress-string-lcci/">Compress string lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/delete-characters-to-make-fancy-string/">Delete characters to make fancy string</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/find-longest-subarray-lcci/">Find longest subarray lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/is-unique-lcci/">Is unique lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/isPalindrome/">isPalindrome</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/jewels-and-stones/">Jewels and stones</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/longest-common-prefix/">Longest common prefix</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/maximum-nesting-depth-of-the-parentheses/">Maximum nesting depth of the parentheses</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/palindrome-permutation-lcci/">Palindrome permutation lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/permutation-i-lcci/">Permutation i lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/permutation-ii-lcci/">Permutation ii lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/rotate-string/">Rotate string</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/shortest-distance-to-a-character/">Shortest distance to a character</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/sparse-array-search-lcci/">Sparse array search lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../string/string-to-url-lcci/">String to url lcci</a>
-                </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="#">Two pointer</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/3sum/">3sum</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/container-with-most-water/">Container with most water</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/move-zeroes/">Move zeroes</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/next-permutation/">Next permutation</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/range-addition-ii/">Range addition ii</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/remove-duplicates-from-sorted-array/">Remove duplicates from sorted array</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/reverse-string/">Reverse string</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/rotate-array/">Rotate array</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/rotate-matrix-lcci/">Rotate matrix lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/smallest-difference-lcci/">Smallest difference lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/sorted-merge-lcci/">Sorted merge lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/squares-of-a-sorted-array/">Squares of a sorted array</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../two-pointer/zero-matrix-lcci/">Zero matrix lcci</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">Binary search</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/binary-search/">Binary search</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/factorial-zeros-lcci/">Factorial zeros lcci</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/first-bad-version/">First bad version</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/search-in-rotated-sorted-array/">Search in rotated sorted array</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/search-insert-position/">Search insert position</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/binary-search/sorted-matrix-search-lcci/">Sorted matrix search lcci</a>
-                </li>
-    </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="#">Slicing window</a>
-    <ul>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/slicing-window/longest-substring-without-repeating-characters/">Longest substring without repeating characters</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/slicing-window/permutation-in-string/">Permutation in string</a>
-                </li>
-                <li class="toctree-l3"><a class="reference internal" href="../../two-pointer/slicing-window/strStr/">strStr</a>
-                </li>
-    </ul>
-                </li>
-    </ul>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Leetcode contests</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../leetcode-contests/intersection-of-multiple-arrays/">Intersection of multiple arrays</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../leetcode-contests/largest-3-same-digit-number-in-string/">Largest 3 same digit number in string</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../leetcode-contests/minimum-consecutive-cards-to-pick-up/">Minimum consecutive cards to pick up</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../leetcode-contests/remove-digit-from-number-to-maximize-result/">Remove digit from number to maximize result</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Mkdocs</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../mkdocs/config/">Config</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../mkdocs/usage/">Usage</a>
-                    </li>
-                </ul>
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SDE Learning" class="md-header__button md-logo" aria-label="SDE Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SDE Learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Three steps problem lcci
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">Learn Python</a>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SDE Learning" class="md-nav__button md-logo" aria-label="SDE Learning" data-md-component="logo">
       
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SDE Learning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
     
       
-        
-          <li>Leetcode &raquo;</li>
-        
       
-        
-          <li>Dynamic programming &raquo;</li>
-        
       
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
     
-    <li>Three steps problem lcci</li>
-    <li class="wy-breadcrumbs-aside">
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Aws certified cloud practitioner
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Aws certified cloud practitioner" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Aws certified cloud practitioner
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Chapter1 Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Chapter1 Introduction" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Chapter1 Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter1%20Introduction/Exam%20Blueprint%20Introduction/" class="md-nav__link">
+        Exam Blueprint Introduction
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Chapter2 Foundations of Cloud Computing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Chapter2 Foundations of Cloud Computing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Chapter2 Foundations of Cloud Computing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter2%20Foundations%20of%20Cloud%20Computing/Understading%20Cloud%20Computing/" class="md-nav__link">
+        Understanding of Cloud Computing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Chapter3 Technology
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Chapter3 Technology" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Chapter3 Technology
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Auditing%20Monitoring%20and%20Logging%20Services/" class="md-nav__link">
+        Auditing, Monitoring, and Logging Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Compute%20Services/" class="md-nav__link">
+        Compute Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Content%20Delivery%20Services/" class="md-nav__link">
+        Content Delivery Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Deployment%20and%20Infrastructure%20Management%20Service/" class="md-nav__link">
+        Deployment and Infrastucture Management Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Developer%20Tools/" class="md-nav__link">
+        Developer Tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Leveraging%20Analytics%20Services/" class="md-nav__link">
+        Leveraging Analytics Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Leveraging%20Storage%20Services/" class="md-nav__link">
+        Storage Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Machine%20Learning%20Services/" class="md-nav__link">
+        Machine Learning Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Messaging%20and%20Intergration%20Services/" class="md-nav__link">
+        Messaging and Integration Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/AWS%20Utilizing%20Databases/" class="md-nav__link">
+        Utilizing Databases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/Migration%20and%20Transfer/" class="md-nav__link">
+        Migration and Transfer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter3%20Technology/VPC%20and%20Subcomponents/" class="md-nav__link">
+        Understanding VPC and Subcomponents
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Chapter4 Sercurity amd Compliance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Chapter4 Sercurity amd Compliance" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Chapter4 Sercurity amd Compliance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter4%20Sercurity%20amd%20Compliance/Application%20Security%20Services/" class="md-nav__link">
+        Application Security Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter4%20Sercurity%20amd%20Compliance/IAM%20Users/" class="md-nav__link">
+        IAM Users
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter4%20Sercurity%20amd%20Compliance/Shared%20Responsibility%20Model/" class="md-nav__link">
+        Shared Responsibility Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter4%20Sercurity%20amd%20Compliance/Utilizing%20Data%20Encryption%20and%20Secrets%20Management%20Services/" class="md-nav__link">
+        Data Encryption and Secrets Management Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws-certified-cloud-practitioner/Chapter4%20Sercurity%20amd%20Compliance/Well-Architected%20Framework/" class="md-nav__link">
+        Well-Architected Framework
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Backend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backend" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Backend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../backend/keywords/" class="md-nav__link">
+        Cloud Services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Frontend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Frontend" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Frontend
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/Redux/" class="md-nav__link">
+        Redux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/react-basics/" class="md-nav__link">
+        React basics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Leetcode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Leetcode" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Leetcode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-structure/" class="md-nav__link">
+        Data structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python-operators/" class="md-nav__link">
+        Python operators
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          Bfs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bfs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Bfs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bfs/01-matrix/" class="md-nav__link">
+        01 matrix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bfs/color-fill-lcci/" class="md-nav__link">
+        Color fill lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bfs/rotting-oranges/" class="md-nav__link">
+        Rotting oranges
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bfs/route-between-nodes-lcci/" class="md-nav__link">
+        Route between nodes lcci
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          Binary tree
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Binary tree" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Binary tree
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/balanced-binary-tree/" class="md-nav__link">
+        Balanced binary tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/binary-search-tree-iterator/" class="md-nav__link">
+        Binary search tree iterator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/binary-tree-inorder-traversal/" class="md-nav__link">
+        Binary tree inorder traversal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/binary-tree-level-order-traversal/" class="md-nav__link">
+        Binary tree level order traversal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/check-subtree-lcci/" class="md-nav__link">
+        Check subtree lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/convert-sorted-array-to-binary-search-tree/" class="md-nav__link">
+        Convert sorted array to binary search tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/convert-sorted-list-to-binary-search-tree/" class="md-nav__link">
+        Convert sorted list to binary search tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/first-common-ancestor-lcci/" class="md-nav__link">
+        First common ancestor lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/flatten-binary-tree-to-linked-list/" class="md-nav__link">
+        Flatten binary tree to linked list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/invert-binary-tree/" class="md-nav__link">
+        Invert binary tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/legal-binary-search-tree-lcci/" class="md-nav__link">
+        Legal binary search tree lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/lowest-common-ancestor-of-a-binary-search-tree/" class="md-nav__link">
+        Lowest common ancestor of a binary search tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/merge-two-binary-trees/" class="md-nav__link">
+        Merge two binary trees
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/minimum-depth-of-binary-tree/" class="md-nav__link">
+        Minimum depth of binary tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/minimum-height-tree-lcci/" class="md-nav__link">
+        Minimum height tree lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/path-sum/" class="md-nav__link">
+        Path sum
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/populating-next-right-pointers-in-each-node/" class="md-nav__link">
+        Populating next right pointers in each node
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/search-in-a-binary-search-tree/" class="md-nav__link">
+        Search in a binary search tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/successor-lcci/" class="md-nav__link">
+        Successor lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../binary-tree/symmetric-tree/" class="md-nav__link">
+        Symmetric tree
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5">
+          Bit operation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bit operation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Bit operation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bit-operation/convert-integer-lcci/" class="md-nav__link">
+        Convert integer lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bit-operation/insert-into-bits-lcci/" class="md-nav__link">
+        Insert into bits lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bit-operation/power-of-two/" class="md-nav__link">
+        Power of two
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bit-operation/reverse-bits-lcci/" class="md-nav__link">
+        Reverse bits lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bit-operation/single-number/" class="md-nav__link">
+        Single number
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_6" type="checkbox" id="__nav_5_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_6">
+          Class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Class" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Class
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../class/implement-queue-using-stacks-lcci/" class="md-nav__link">
+        Implement queue using stacks lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../class/min-stack-lcci/" class="md-nav__link">
+        Min stack lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../class/stack-of-plates-lcci/" class="md-nav__link">
+        Stack of plates lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../class/three-in-one-lcci/" class="md-nav__link">
+        Three in one lcci
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_7" type="checkbox" id="__nav_5_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_7">
+          Dfs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dfs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          Dfs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/balanced-binary-tree/" class="md-nav__link">
+        Balanced binary tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/combination-sum/" class="md-nav__link">
+        Combination sum
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/flood-fill-myths/" class="md-nav__link">
+        Flood fill myths
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/flood-fill/" class="md-nav__link">
+        Flood fill
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/max-area-of-island/" class="md-nav__link">
+        Max area of island
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/n-ary-tree-postorder-traversal/" class="md-nav__link">
+        N ary tree postorder traversal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/n-ary-tree-preorder-traversal/" class="md-nav__link">
+        N ary tree preorder traversal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/number-of-islands/" class="md-nav__link">
+        Number of islands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/paths-with-sum-lcci/" class="md-nav__link">
+        Paths with sum lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dfs/word-search/" class="md-nav__link">
+        Word search
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_8" type="checkbox" id="__nav_5_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_8">
+          Dynamic programming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dynamic programming" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_8">
+          <span class="md-nav__icon md-icon"></span>
+          Dynamic programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../climbing-stairs/" class="md-nav__link">
+        Climbing stairs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contiguous-sequence-lcci/" class="md-nav__link">
+        Contiguous sequence lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../house-robber/" class="md-nav__link">
+        House robber
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../the-masseuse-lcci/" class="md-nav__link">
+        The masseuse lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Three steps problem lcci
+      </a>
       
     </li>
-  </ul>
   
-  <hr/>
-</div>
 
-          <div role="main">
-            <div class="section">
+            
+          
+            
               
-                <p>(leetcode.cc)[https://leetcode-cn.com/problems/three-steps-problem-lcci/submissions/]</p>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unique-paths/" class="md-nav__link">
+        Unique paths
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9" type="checkbox" id="__nav_5_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_9">
+          Heap
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Heap" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Heap
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../heap/kth-largest-element-in-a-stream/" class="md-nav__link">
+        Kth largest element in a stream
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_10" type="checkbox" id="__nav_5_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_10">
+          Leetcodecn contests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Leetcodecn contests" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_10">
+          <span class="md-nav__icon md-icon"></span>
+          Leetcodecn contests
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../leetcodecn-contests/keep-multiplying-found-values-by-two/" class="md-nav__link">
+        Keep multiplying found values by two
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_10_2" type="checkbox" id="__nav_5_10_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_10_2">
+          Https:
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Https:" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_10_2">
+          <span class="md-nav__icon md-icon"></span>
+          Https:
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_10_2_1" type="checkbox" id="__nav_5_10_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_10_2_1">
+          Leetcode cn.com
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Leetcode cn.com" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_10_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Leetcode cn.com
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../leetcodecn-contests/https%3A/leetcode-cn.com/coall-divisions-with-the-highest-score-of-a-binary-array/" class="md-nav__link">
+        Coall divisions with the highest score of a binary array
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_11" type="checkbox" id="__nav_5_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_11">
+          Linked list
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linked list" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_11">
+          <span class="md-nav__icon md-icon"></span>
+          Linked list
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/delete-middle-node-lcci/" class="md-nav__link">
+        Delete middle node lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/kth-node-from-end-of-list-lcci/" class="md-nav__link">
+        Kth node from end of list lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/linked-list-cycle/" class="md-nav__link">
+        Linked list cycle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/merge-sorted-lists/" class="md-nav__link">
+        Merge sorted lists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/middle-of-the-linked-list/" class="md-nav__link">
+        Middle of the linked list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/palindrome-linked-list-lcci/" class="md-nav__link">
+        Palindrome linked list lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/palindrome-linked-list/" class="md-nav__link">
+        Palindrome linked list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/remove-duplicate-node-lcci/" class="md-nav__link">
+        Remove duplicate node lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/remove-nth-node-from-end-of-list/" class="md-nav__link">
+        Remove nth node from end of list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linked-list/reverse-linked-list/" class="md-nav__link">
+        Reverse linked list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_12" type="checkbox" id="__nav_5_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_12">
+          List map
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="List map" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_12">
+          <span class="md-nav__icon md-icon"></span>
+          List map
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/can-place-flowers/" class="md-nav__link">
+        Can place flowers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/diving-board-lcci/" class="md-nav__link">
+        Diving board lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/find-majority-element-lcci/" class="md-nav__link">
+        Find majority element lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/group-anagrams-lcci/" class="md-nav__link">
+        Group anagrams lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/living-people-lcci/" class="md-nav__link">
+        Living people lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/merge-intervals/" class="md-nav__link">
+        Merge intervals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/minimum-absolute-difference/" class="md-nav__link">
+        Minimum absolute difference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/minimum-index-sum-of-two-lists/" class="md-nav__link">
+        Minimum index sum of two lists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/missing-number-lcci/" class="md-nav__link">
+        Missing number lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/most-common-word/" class="md-nav__link">
+        Most common word
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/pascals-triangle/" class="md-nav__link">
+        Pascals triangle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/problems/" class="md-nav__link">
+        Problems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/subsets/" class="md-nav__link">
+        Subsets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/two-sum-ii-input-array-is-sorted/" class="md-nav__link">
+        Two sum ii input array is sorted
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/two-sum/" class="md-nav__link">
+        Two sum
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../list-map/words-frequency-lcci/" class="md-nav__link">
+        Words frequency lcci
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_13" type="checkbox" id="__nav_5_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_13">
+          Recursion
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Recursion" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_13">
+          <span class="md-nav__icon md-icon"></span>
+          Recursion
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursion/combinations/" class="md-nav__link">
+        Combinations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursion/construct-string-from-binary-tree/" class="md-nav__link">
+        Construct string from binary tree
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursion/hanota-lcci/" class="md-nav__link">
+        Hanota lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursion/merge-two-sorted-lists/" class="md-nav__link">
+        Merge two sorted lists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursion/permutations/" class="md-nav__link">
+        Permutations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursion/reverse-linked-list/" class="md-nav__link">
+        Definition for singly-linked list.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recursion/triangle/" class="md-nav__link">
+        Triangle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_14" type="checkbox" id="__nav_5_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_14">
+          Set
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Set" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_14">
+          <span class="md-nav__icon md-icon"></span>
+          Set
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../set/power-set-lcci/" class="md-nav__link">
+        Power set lcci
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_15" type="checkbox" id="__nav_5_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_15">
+          Sort
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sort" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_15">
+          <span class="md-nav__icon md-icon"></span>
+          Sort
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sort/special-array-with-x-elements-greater-than-or-equal-x/" class="md-nav__link">
+        Special array with x elements greater than or equal x
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_16" type="checkbox" id="__nav_5_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_16">
+          String
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="String" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_16">
+          <span class="md-nav__icon md-icon"></span>
+          String
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/check-permutation-lcci/" class="md-nav__link">
+        Check permutation lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/compress-string-lcci/" class="md-nav__link">
+        Compress string lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/delete-characters-to-make-fancy-string/" class="md-nav__link">
+        Delete characters to make fancy string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/find-longest-subarray-lcci/" class="md-nav__link">
+        Find longest subarray lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/is-unique-lcci/" class="md-nav__link">
+        Is unique lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/isPalindrome/" class="md-nav__link">
+        isPalindrome
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/jewels-and-stones/" class="md-nav__link">
+        Jewels and stones
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/longest-common-prefix/" class="md-nav__link">
+        Longest common prefix
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/maximum-nesting-depth-of-the-parentheses/" class="md-nav__link">
+        Maximum nesting depth of the parentheses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/palindrome-permutation-lcci/" class="md-nav__link">
+        Palindrome permutation lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/permutation-i-lcci/" class="md-nav__link">
+        Permutation i lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/permutation-ii-lcci/" class="md-nav__link">
+        Permutation ii lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/rotate-string/" class="md-nav__link">
+        Rotate string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/shortest-distance-to-a-character/" class="md-nav__link">
+        Shortest distance to a character
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/sparse-array-search-lcci/" class="md-nav__link">
+        Sparse array search lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../string/string-to-url-lcci/" class="md-nav__link">
+        String to url lcci
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_17" type="checkbox" id="__nav_5_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_17">
+          Two pointer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Two pointer" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_17">
+          <span class="md-nav__icon md-icon"></span>
+          Two pointer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/3sum/" class="md-nav__link">
+        3sum
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/container-with-most-water/" class="md-nav__link">
+        Container with most water
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/move-zeroes/" class="md-nav__link">
+        Move zeroes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/next-permutation/" class="md-nav__link">
+        Next permutation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/range-addition-ii/" class="md-nav__link">
+        Range addition ii
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/remove-duplicates-from-sorted-array/" class="md-nav__link">
+        Remove duplicates from sorted array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/reverse-string/" class="md-nav__link">
+        Reverse string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/rotate-array/" class="md-nav__link">
+        Rotate array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/rotate-matrix-lcci/" class="md-nav__link">
+        Rotate matrix lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/smallest-difference-lcci/" class="md-nav__link">
+        Smallest difference lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/sorted-merge-lcci/" class="md-nav__link">
+        Sorted merge lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/squares-of-a-sorted-array/" class="md-nav__link">
+        Squares of a sorted array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/zero-matrix-lcci/" class="md-nav__link">
+        Zero matrix lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_17_14" type="checkbox" id="__nav_5_17_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_17_14">
+          Binary search
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Binary search" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_17_14">
+          <span class="md-nav__icon md-icon"></span>
+          Binary search
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/binary-search/binary-search/" class="md-nav__link">
+        Binary search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/binary-search/factorial-zeros-lcci/" class="md-nav__link">
+        Factorial zeros lcci
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/binary-search/first-bad-version/" class="md-nav__link">
+        First bad version
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/binary-search/search-in-rotated-sorted-array/" class="md-nav__link">
+        Search in rotated sorted array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/binary-search/search-insert-position/" class="md-nav__link">
+        Search insert position
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/binary-search/sorted-matrix-search-lcci/" class="md-nav__link">
+        Sorted matrix search lcci
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_17_15" type="checkbox" id="__nav_5_17_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_17_15">
+          Slicing window
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Slicing window" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_17_15">
+          <span class="md-nav__icon md-icon"></span>
+          Slicing window
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/slicing-window/longest-substring-without-repeating-characters/" class="md-nav__link">
+        Longest substring without repeating characters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/slicing-window/permutation-in-string/" class="md-nav__link">
+        Permutation in string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../two-pointer/slicing-window/strStr/" class="md-nav__link">
+        strStr
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Leetcode contests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Leetcode contests" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Leetcode contests
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../leetcode-contests/intersection-of-multiple-arrays/" class="md-nav__link">
+        Intersection of multiple arrays
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../leetcode-contests/largest-3-same-digit-number-in-string/" class="md-nav__link">
+        Largest 3 same digit number in string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../leetcode-contests/minimum-consecutive-cards-to-pick-up/" class="md-nav__link">
+        Minimum consecutive cards to pick up
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../leetcode-contests/remove-digit-from-number-to-maximize-result/" class="md-nav__link">
+        Remove digit from number to maximize result
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Mkdocs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mkdocs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Mkdocs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mkdocs/config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mkdocs/usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Three steps problem lcci</h1>
+
+<p>(leetcode.cc)[https://leetcode-cn.com/problems/three-steps-problem-lcci/submissions/]</p>
 <pre><code class="language-python">class Solution:
     def waysToStep(self, n: int) -&gt; int:
         if n&lt;=2: return n
@@ -471,58 +3376,78 @@
 
 
 </code></pre>
+
               
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../the-masseuse-lcci/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The masseuse lcci" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              The masseuse lcci
             </div>
           </div>
-          <footer>
+        </a>
+      
+      
+        
+        <a href="../unique-paths/" class="md-footer__link md-footer__link--next" aria-label="Next: Unique paths" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Unique paths
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../unique-paths/" class="btn btn-neutral float-right" title="Unique paths">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../the-masseuse-lcci/" class="btn btn-neutral" title="The masseuse lcci"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
   </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <span><a href="../the-masseuse-lcci/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <script src="../../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
     
-    
-      <span><a href="../unique-paths/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
-</div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme_extra.js" defer></script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="../../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
-</body>
+  </body>
 </html>
