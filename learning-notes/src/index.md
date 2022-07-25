@@ -1,6 +1,7 @@
 # estherxyx.github.io/sde-learnings
 
 ## Intro
+- [About Me](https://estherxyx.github.io)
 - This is blog about my SDE study footprint
 - Hello World from `estherxyx`:
 
